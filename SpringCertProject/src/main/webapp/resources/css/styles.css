@@ -12617,3 +12617,67 @@ body, html {
 #SigneUp-phone {
 	margin-left: 23px;
 } */
+
+  @media print {
+  body {
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0;
+  }
+}
+
+.table1, .table3 ,.table5 {
+  margin: auto;
+  width: 21cm; /* 수정 */
+  height: 29.7cm; /* 수정 */
+  padding: 1cm;
+  border: 2px solid black;
+  overflow: hidden;
+  margin-top:20%;
+}
+
+.table0, .table2 ,.table4 {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #ddd;
+}
+
+.a4 {
+  width: 21cm; /* 수정 */
+  height: 29.7cm; /* 수정 */
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+h1 {
+  text-align: center;
+}
+
+.disclaimer-center, .hospitalization and discharge-center ,.medical treatment conf-center{
+      margin-top:10%;
+  margin-bottom:10%;
+  text-align: center;
+  font-size:150%
+}
+
+.hospital-name, .hospitalization and discharge,.medical treatment conf{
+    margin-top:10%;
+  margin-bottom:10%;
+  text-align: center;
+  font-size:150%
+}
+
+        
+
+        
