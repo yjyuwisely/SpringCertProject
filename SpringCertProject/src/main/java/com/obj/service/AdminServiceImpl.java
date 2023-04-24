@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.obj.mapper.AdminMapper;
 import com.obj.model.MemberVO;
+import com.obj.model.PatientVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -17,6 +18,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public ArrayList<MemberVO> memberList(MemberVO member) {
 		return adMapper.memberList(member);
+	}
+
+	@Override
+	public void diagnosis(PatientVO patient) {
+		adMapper.diagnosis(patient);
 	}
 
 }

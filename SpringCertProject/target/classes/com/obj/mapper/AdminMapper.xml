@@ -7,5 +7,10 @@ select * from member
 
 </select>
 
+<insert id="diagnosis" parameterType="com.obj.model.PatientVO">
+INSERT INTO certificate 
+(id, Diagnostic, patientcode, admission_date, discharge_date, disease, operation) 
+VALUES (UUID(), #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation});
+</insert>
 
 </mapper>

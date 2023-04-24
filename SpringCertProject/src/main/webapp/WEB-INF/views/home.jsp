@@ -48,6 +48,10 @@
 							<span></span> <span></span> <span></span> <span></span> 인터넷 발급
 							바로가기
 						</a>
+						<a href="Admin"
+							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
+							관리자페이지
+						</a>
 					</div>
 				</div>
 			</div>

@@ -83,7 +83,7 @@
 									</td>
 									<td class="py-3">
 										<!-- 입원 날짜 start -->
-										<div>2023.01.01</div>
+										<div>2023.01.03</div>
 									</td>
 									<td class="py-3">
 										<!-- 퇴원 날짜 end -->
@@ -96,7 +96,7 @@
 									<td class="py-3">
 										<!-- 작성하기 -->
 										<div>
-											<a href="Diagnosis?email=${member.email}"
+											<a href="Diagnosis?email=${member.id}"
 												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
 										</div>
 									</td>
