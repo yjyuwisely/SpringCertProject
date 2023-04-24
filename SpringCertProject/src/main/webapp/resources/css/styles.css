@@ -12618,11 +12618,15 @@ body, html {
 	margin-left: 23px;
 } */
 
+
   @media print {
   body {
     width: 21cm;
     height: 29.7cm;
     margin: 0;
+  }
+  .Sans row justify-content-center {
+    display: none;
   }
 }
 
@@ -12640,6 +12644,7 @@ body, html {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1rem;
+  margin top:3cm;
   border: 1px solid black;
 }
 
@@ -12660,8 +12665,9 @@ th {
   border: 1px solid black;
 }
 
-h1 {
+.general-name {
   text-align: center;
+  margin-botton:3cm;
 }
 
 .disclaimer-center, .hospitalization and discharge-center ,.medical treatment conf-center{
@@ -12672,10 +12678,10 @@ h1 {
 }
 
 .hospital-name, .hospitalization and discharge,.medical treatment conf{
-    margin-top:10%;
+    margin-top:20%;
   margin-bottom:10%;
   text-align: center;
-  font-size:150%
+  font-size:110%
 }
 
         

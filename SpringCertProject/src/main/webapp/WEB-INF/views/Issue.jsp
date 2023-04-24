@@ -59,7 +59,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="Download"> 신청 </a></td>
+										href="meditreatConf"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td>
@@ -69,7 +69,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="Download"> 신청 </a></td>
+										href="inoutConf"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td>
@@ -79,7 +79,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="Download"> 신청 </a></td>
+										href="generalCert"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td colspan=2 class="Sans pt-3 mb-3"><a
