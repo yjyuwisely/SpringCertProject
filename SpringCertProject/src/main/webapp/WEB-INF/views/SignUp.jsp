@@ -38,7 +38,7 @@
 			<div class="row gx-5 justify-content-center">
 				<div
 					class="card shadow rounded-4 border-0 col-sm-8 col-md-6 col-lg-5 px-4 pt-4 pb-1 mb-5">
-					<form action="memberIn" method="post">
+					<form action="memberJoin" method="post">
 						<div class="text-left mb-4">
 							<h1 class="fw-bolder">
 								<span class="d-inline LogoGradient-text fs-1">회원 가입</span>
@@ -82,6 +82,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<!-- Footer-->
 		<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
 		<div class=" px-5">

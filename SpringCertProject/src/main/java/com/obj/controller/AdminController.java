@@ -71,17 +71,20 @@ public class AdminController {
 		return "redirect:/Admin";
 	}
 	
-	/*Diagnosis.jsp에 환자이름 미리 집어넣기, pcode 이름바꾸고 옵션으로 다시만들기 (완료)
-	 * 
+	/* 조인! 제일 중요
+	 * Diagnosis.jsp에 환자이름 미리 집어넣기, 
 	 * 빈값도 나오게 하기
-	 * member 테이블에 환자/관리자 여부 칼럼 추가 (완료), certificate테이블에 수술날짜 칼럼추가 (완료)
-	 * 
-	 * 리스트 김원장 지우기 doctor칼럼 y/n값 줘서 추가했고 (완료) 회원가입에서 자동으로 되는지 확인해야함
+	 * 회원가입에서 자동으로 되는지 확인해야함
 	 * 회원가입할때 환자코드?로 자동 insert되게 하기
-	 * pcode선택 안되있을때 경고창띄우기, 리스트에서 pcode가있을때 는 버튼 수정하기로 바꾸기 <c:if>?
+	 * 리스트에서 pcode가있을때 는 버튼 수정하기로 바꾸기 <c:if>?
 	 * update페이지에 기존정보 띄워주기
-	 * update 하기 id값을 못가져옴 form태그 (완료!)
 	 * 
+	 * update 하기 id값을 못가져옴 form태그 (완료!)
+	 * pcode 이름바꾸고 옵션으로 다시만들기 (완료)
+	 * 리스트 김원장 지우기 doctor칼럼 y/n값 줘서 추가했고 (완료)
+	 * member 테이블에 환자/관리자 여부 칼럼 추가 (완료) 
+	 * certificate테이블에 수술날짜 칼럼추가 (완료)
+	 * pcode선택 안되있을때 경고창띄우기(완료)
 	 */
 
 	
