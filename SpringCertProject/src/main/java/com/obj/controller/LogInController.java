@@ -33,11 +33,11 @@ public class LogInController {
 		if (logserv.memberLogIn(member)==null) {
 			logger.info("LogIn failed member is = {}", member);
 			return "/LogIn";
-		}else if(email.equals("admin") && pass.equals("1234")){
+		}else if(email.equals("admin@admin.com") && pass.equals("1234")){
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("doctor", email);
 			model.addAttribute("admin", logserv.memberLogIn(member));
-			return "redirect:/admin";
+			return "redirect:/Admin";
 		}else {
 			logger.info("common user LogIn Success member is = {}", member);
 			session.setAttribute("common", logserv.memberLogIn(member));

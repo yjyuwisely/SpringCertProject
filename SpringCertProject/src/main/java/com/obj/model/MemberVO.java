@@ -5,6 +5,7 @@ import javax.validation.constraints.NotEmpty;
 
 public class MemberVO {
 	
+	private String id;
 	@NotEmpty(message = "이메일을 입력해주세요.")
 	private String email;
 	@NotEmpty
@@ -16,6 +17,14 @@ public class MemberVO {
 	private String residentid;
 	private String phone;
 	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -48,9 +57,11 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [email=" + email + ", password=" + password + ", name=" + name + ", residentid=" + residentid
-				+ ", phone=" + phone + "]";
+		return "MemberVO [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", residentid="
+				+ residentid + ", phone=" + phone + "]";
 	}
+	
+
 	
 	
 	

@@ -8,5 +8,7 @@ import com.obj.model.PatientVO;
 public interface AdminMapper {
 	public ArrayList<MemberVO> memberList(MemberVO member);
 	public void diagnosis(PatientVO patient);
+	public ArrayList<PatientVO> digSelect(PatientVO patient);
+	public void dignosisUpdate(PatientVO patient);
 
 }

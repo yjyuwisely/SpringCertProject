@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>진단서 작성</title>
+<title>진단서 수정하기</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
@@ -39,16 +39,16 @@
 						<div class="mb-3 p-0">
 							<div class="text-left">
 								<h1 class="display-5 fw-bolder">
-									<span class="text-gradient d-inline pb-2 fs-1">진단서 작성</span>
+									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정</span>
 									${member.id}
 								</h1>
 							</div>
-							<form action="doctorIn" method="post" class="text-end Sans text-muted mb-3">
 								<!-- <% String email = (String) session.getAttribute("doctor"); %>  -->
 								관리자 계정: Doctor
 								<!-- <%=email%> -->
-							</form>
+							
 						</div>
+						<form action="dignosisUpdate" method="post" class="text-end Sans text-muted mb-3">
 						<input type="hidden" id="memId" name="id" value="${member.id}"
 									class=" form-control mb-3">
 						<table class="text-left DiagnosisTable">
@@ -69,8 +69,8 @@
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">Diagnostic</td>
 								<td colspan="3"><textarea id="Diagnostic" name="Diagnostic"
-								class="mb-3 form-control"
-										rows="2"></textarea></td>
+								class="mb-3 form-control" rows="2">
+								</textarea></td>
 							</tr>
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">입원 날짜</td>
@@ -83,9 +83,11 @@
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">상병명</td>
 								<td><input type="text" id="disease" name="disease"
-									class=" form-control mb-3"></td>
+									class=" form-control mb-3" 
+									value="${modelPatientVal.disease}"></td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">수술명</td>
 								<td><input type="text" id="operation" name="operation"
+									value="${patientVal.operation}"
 									class=" form-control mb-3"></td>
 							</tr>
 							<tr>
@@ -94,13 +96,15 @@
 								class=" form-control mb-3"></td>
 							</tr>
 						</table>
+						<input type="submit" value="수정하기">
+						</form>
 					</div>
 					<div class="row justify-content-center Sans my-4">
-						<a
-							class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
-							href="javascript:digInsert
-							('${member.id}')" onclick="sendParam('${member.id}', Diagnostic, patientcode, disease, operation)">
-							저장하기 </a>
+<!-- 						<a -->
+<!-- 							class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5" -->
+<%-- 							href="javascript:digInsert --%>
+<%-- 							('${member.id}')" onclick="sendParam('${member.id}', Diagnostic, patientcode, disease, operation)"> --%>
+<!-- 							저장하기 </a> -->
 					</div>
 				</div>
 			</div>

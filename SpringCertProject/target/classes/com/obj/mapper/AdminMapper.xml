@@ -3,14 +3,32 @@
 
 <mapper namespace="com.obj.mapper.AdminMapper">
 <select id="memberList" resultType="com.obj.model.MemberVO">
-select * from member
+select * from member where doctor='n'
 
 </select>
 
+<!-- WHERE patientcode IN (1, 2, 3); -->
+
 <insert id="diagnosis" parameterType="com.obj.model.PatientVO">
 INSERT INTO certificate 
-(id, Diagnostic, patientcode, admission_date, discharge_date, disease, operation) 
-VALUES (UUID(), #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation});
+(id, Diagnostic, patientcode, admission_date, discharge_date, disease, operation, surg_date) 
+VALUES (#{id}, #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation}, #{surg_date});
 </insert>
+
+<select id="digSelect" resultType="com.obj.model.PatientVO">
+SELECT * FROM certificate
+</select>
+
+<update id="dignosisUpdate">
+UPDATE certificate
+  SET
+    Diagnostic = #{Diagnostic},
+    admission_date = #{admission_date},
+    discharge_date = #{discharge_date},
+    disease = #{disease},
+    operation = #{operation},
+    surg_date = #{surg_date}
+  WHERE id = #{id}
+</update>
 
 </mapper>

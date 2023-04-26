@@ -47,60 +47,74 @@
 			<div class="row gx-5 justify-content-center">
 				<div class="card shadow border-0 rounded-4 mb-5">
 					<div class="card-body row align-items-center">
-						<table class="text-center">
+						<table class="text-center" style="empty-cells: show;">
 							<tr class="fw-bold">
 								<th class="DarkText-gradient mb-5">환자 이름</th>
 								<th class="DarkText-gradient mb-5">주민등록번호</th>
-								<th class="DarkText-gradient mb-5">상병명 코드</th>
 								<th class="DarkText-gradient mb-5">병명</th>
 								<th class="DarkText-gradient mb-5">수술명</th>
+								<th class="DarkText-gradient mb-5">수술 날짜</th>
 								<th class="DarkText-gradient mb-5">입원 날짜</th>
 								<th class="DarkText-gradient mb-5">퇴원 날짜</th>
 								<th class="DarkText-gradient mb-5">환자 코드</th>
 								<th class="DarkText-gradient mb-5">작성하기</th>
+								<th class="DarkText-gradient mb-5">수정</th>
 							</tr>
-							<c:forEach items="${member}" var="member">
+							<c:forEach items="${member}" var="member" varStatus="status">
+							<input type="hidden" id="id" value="${member.id}">
 								<tr class="col text-center mb-lg-3 rounded-4 Sans fw-light">
 									<td class="py-3">
 										<!-- 환자이름  -->
-										<div>${member.name}</div>
+										<div id="name">${member.name}</div>
 									</td>
 									<td class="py-3">
 										<!-- 주민등록번호  -->
 										<div>${member.residentid}</div>
 									</td>
-									<td class="py-3">
-										<!-- 상병명 코드 diagnostic  -->
-										<div>상병명 코드</div>
-									</td>
+									<c:forEach items="${docdig}" var="docdig">
+									<c:if test="${docdig.id eq member.id}">
 									<td class="py-3">
 										<!-- 병명  disease -->
-										<div>병명</div>
+										<div>${docdig.disease}&nbsp;</div>
 									</td>
 									<td class="py-3">
 										<!-- 수술명 surgery -->
-										<div>수술명</div>
+										<div>${docdig.operation}&nbsp;</div>
+									</td>
+									<td class="py-3">
+										<!-- 수술 날짜 strat -->
+										<div>${docdig.surg_date}&nbsp;</div>
 									</td>
 									<td class="py-3">
 										<!-- 입원 날짜 start -->
-										<div>2023.01.03</div>
+										<div>${docdig.admission_date}&nbsp;</div>
 									</td>
 									<td class="py-3">
 										<!-- 퇴원 날짜 end -->
-										<div>2323.05.09</div>
+										<div>${docdig.discharge_date}&nbsp;</div>
 									</td>
 									<td class="py-3">
 										<!-- 환자 코드 pcode -->
-										<div>환자 코드</div>
+										<div>${docdig.patientcode}&nbsp;</div>
 									</td>
+									</c:if>
+									</c:forEach>									
 									<td class="py-3">
 										<!-- 작성하기 -->
 										<div>
-											<a href="Diagnosis?email=${member.id}"
+<!-- 											<a href="#" id="IdName" -->
+											<a href="javascript:patientWrite('${member.id}', '${member.name}')"
 												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
 										</div>
-									</td>
-								</tr>
+									</td>	
+									<td class="py-3">
+										<!-- 수정하기 -->
+										<div>
+											<a href="javascript:patientModify('${member.id}', '${member.name}')"
+												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">수정하기</a>
+										</div>
+									</td>								
+									</tr>					
 							</c:forEach>
 						</table>
 					</div>
@@ -119,9 +133,11 @@
 		</div>
 	</footer> -->
 	<!-- Bootstrap core JS-->
+<script src="resources/js/patientWrite.js"></script>
+<script src="resources/js/patientModify.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="resources/js/scripts.js"></script>
+
 </body>
 </html>
