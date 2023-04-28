@@ -36,7 +36,7 @@ UPDATE certificate
 
 <!-- VO사용 left JOIN -->
 <select id="memCertJoin"
-	resultType="com.obj.model.MemberCertJoinVO">
+	resultType="com.obj.model.CertificateVO">
 	SELECT
 	m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
 	c.discharge_date, c.patientcode

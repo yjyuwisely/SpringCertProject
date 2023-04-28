@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.obj.mapper.AdminMapper;
-import com.obj.model.MemberCertJoinVO;
+import com.obj.model.CertificateVO;
 import com.obj.model.MemberVO;
 import com.obj.model.PatientVO;
 
@@ -42,8 +42,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<MemberCertJoinVO> memCertJoin(MemberCertJoinVO memcertVal) {
-		return adMapper.memCertJoin(memcertVal);
+	public List<CertificateVO> memCertJoin(CertificateVO certVal) {
+		return adMapper.memCertJoin(certVal);
 	}
 
 	@Override

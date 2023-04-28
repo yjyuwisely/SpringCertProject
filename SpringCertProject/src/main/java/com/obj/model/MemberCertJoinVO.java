@@ -1,6 +1,6 @@
 package com.obj.model;
 
-public class CertificateVO {
+public class MemberCertJoinVO {
 	private String id;
 	private String name;
 	private String residentid;
@@ -79,4 +79,9 @@ public class CertificateVO {
 				+ ", discharge_date=" + discharge_date + ", disease=" + disease + ", operation=" + operation
 				+ ", surg_date=" + surg_date + "]";
 	}
+	
+	
+	
+	
+
 }

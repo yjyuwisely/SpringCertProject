@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.obj.model.CertificateVO;
 import com.obj.model.MemberCertJoinVO;
 import com.obj.model.MemberVO;
 import com.obj.service.AdminService;
@@ -34,14 +35,14 @@ public class AdminController {
 	
 	//VO를 파라미터로 줄때는 @ModelAttribute가 생략되있는 상태
 	@GetMapping("/Admin")
-	public String memberList(Model model, MemberVO member, MemberCertJoinVO memcertVal,
+	public String memberList(Model model, MemberVO member, CertificateVO certVal,
 			PatientVO patient, HttpSession session) {
 		session.setAttribute("email", adServ.memberList(member));
-		model.addAttribute("memcertVal", adServ.memCertJoin(memcertVal));
+		model.addAttribute("memcertVal", adServ.memCertJoin(certVal));
 		//model.addAttribute("docdig", adServ.digSelect(patient));
 		model.addAttribute("member", adServ.memberList(member));
 		logger.info("AdminPage member is ={}", member);
-		logger.info("AdminPage memcertVal is ={}", memcertVal);
+		logger.info("AdminPage memcertVal is ={}", certVal);
 		return "/Admin";
 	}
 	
@@ -75,6 +76,7 @@ public class AdminController {
 		adServ.dignosisUpdate(patient);
 		return "redirect:/Admin";
 	}
+	
 	
 	/* 조인! 제일 중요
 	 * js 정규식, 약관?
