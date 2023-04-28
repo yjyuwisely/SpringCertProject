@@ -11,7 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
-/* 새로 추가함 */
+/* 새로 추가함 */ 
 @import
 	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Roboto&display=swap'); /*font-family: 'IBM Plex Sans KR', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap'); /*font-family: 'Montserrat', sans-serif;*/
@@ -30,9 +30,58 @@ header {
 	background: linear-gradient(180deg, #EBF3FE, white);
 }
 
+/* 프린트 할 때 */
+@media print {
+	.card.shadow {
+		box-shadow: none !important;
+	}
+}
+
+@media print {
+	.tablePrint {
+		border: 1px solid #ccc;
+	}
+	.tablePrint td, th {
+		border: 1px solid #ccc;
+	}
+	.tablePrint {
+		white-space: nowrap;
+	}
+}
+
+@media print {
+	.print-hide {
+		display: none;
+	}
+	.navbar-toggler {
+		display: none;
+	}
+	nav {
+		display: none;
+	}
+}
+
+@media print {
+	.dateCheif {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+@media print {
+	.container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
 /* input Style */
 .inputStyle{
-background-color: #fafafa;
+background-color: #fafafa !important;
 box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
 }
 
@@ -41,6 +90,7 @@ box-shadow: inset 0 1px 3px 0 rgba(0,0,0,.08);
 	table-layout:auto;
 	white-space: nowrap;
 }
+
 /* .DiagnosisTable tr:nth-child(1) td:nth-child(2),
 .DiagnosisTable tr:nth-child(1) td:nth-child(4),
 .DiagnosisTable tr:nth-child(3) td:nth-child(2),
@@ -4003,7 +4053,7 @@ textarea.form-control-lg {
 	color: var(--bs-nav-link-color);
 	text-decoration: none;
 	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-		border-color 0.15s ease-in-out;	
+		border-color 0.15s ease-in-out;
 }
 
 @media ( prefers-reduced-motion : reduce) {
@@ -12540,7 +12590,7 @@ body, html {
 	}
 }
 
-.login, .SignUp-h {
+/* .login, .SignUp-h {
 	font-size: 30px;
 	margin-top: 50px;
 }
@@ -12551,8 +12601,8 @@ body, html {
 
 .login-p {
 	font-size: 14px;
-/* 	margin-top: 35px;
-	margin-left: 53px; */
+	margin-top: 35px;
+	margin-left: 53px;
 }
 
 .grayLine, .login-email, .login-password, #SigneUp-email, #SigneUp-password,
@@ -12570,7 +12620,7 @@ body, html {
 	margin-left: 14px;
 }
 
-/* .login-button, #SigneUp-button {
+.login-button, #SigneUp-button {
 	background-color: #81c147;
 	color: white;
 	border: none;
@@ -12584,16 +12634,16 @@ body, html {
   display: block;
   margin: 0 auto;
   text-align: center;
-} */
+}
 
-/* #login-center, #SignUp, .SignUp-h {
+#login-center, #SignUp, .SignUp-h {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
-} */
-/* 
+}
+
 #SigneUp-email {
 	margin-left: 55px;
 }
@@ -12618,8 +12668,7 @@ body, html {
 	margin-left: 23px;
 } */
 
-
-  @media print {
+/*   @media print {
   body {
     width: 21cm;
     height: 29.7cm;
@@ -12632,8 +12681,8 @@ body, html {
 
 .table1, .table3 ,.table5 {
   margin: auto;
-  width: 21cm; /* 수정 */
-  height: 29.7cm; /* 수정 */
+  width: 21cm; 수정
+  height: 29.7cm; 수정
   padding: 1cm;
   border: 2px solid black;
   overflow: hidden;
@@ -12659,8 +12708,8 @@ th {
 }
 
 .a4 {
-  width: 21cm; /* 수정 */
-  height: 29.7cm; /* 수정 */
+  width: 21cm; 수정
+  height: 29.7cm; 수정
   margin: 0 auto;
   border: 1px solid black;
 }
@@ -12682,8 +12731,4 @@ th {
   margin-bottom:10%;
   text-align: center;
   font-size:110%
-}
-
-        
-
-        
+} */
