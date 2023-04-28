@@ -55,11 +55,11 @@
 									<td>
 										<div
 											class="col text-center mb-4 mb-lg-3 p-2 rounded-4 fw-bolder fs-5 Sans">
-											일반진단서</div>
+											진료확인서</div>
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="meditreatConf"> 신청 </a></td>
+										href="GeneralDown"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td>
@@ -69,7 +69,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="inoutConf"> 신청 </a></td>
+										href="InoutDown"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td>
@@ -79,12 +79,12 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="generalCert"> 신청 </a></td>
+										href="SergDown"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td colspan=2 class="Sans pt-3 mb-3"><a
 										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 fw-bolder fs-4 mb-1"
-										href="Download"> 결제하기 </a></td>
+										href="#"> 결제하기 </a></td>
 								</tr>
 							</table>
 						</div>

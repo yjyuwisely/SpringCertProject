@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,7 +11,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>관리자 페이지</title>
-<!-- Favicon-->
+<!-- Favicon--> 
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,32 +28,35 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<!-- Navigation-->
-<nav class="navbar navbar-expand-xl bg-white">
-	<div class="container px-5">
-		<a class="LogoGradient-text navbar-brand Mont fs-5 px-3" href="/"><span
-			class="fw-bolder">ULSAN GREEN HOSPITAL</span></a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse Sans" id="navbarSupportedContent">
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-1 fw-bolder">
-				<li class="nav-item nav-link">진료예약</li>
-				<li class="nav-item nav-link">건강정보</li>
-				<li class="nav-item nav-link">진료파트</li>
-				<li class="nav-item nav-link">나눔소통</li>
-				<li class="nav-item nav-link">병원안내</li>
-			</ul>
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
-				<li class="nav-item"><a href="LogIn"
-					class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2">로그인</a></li>
-				<li class="nav-item"><a href="SignUp"
-					class="nav-link badge bg-gradient-primary-to-secondary text-white px-2">회원가입</a></li>
-			</ul>
+<!-- Navigation--> 
+<div class=print-hide">
+	<nav class="navbar navbar-expand-lg bg-white">
+		<div class="container px-5">
+			<a class="print-hide navbar-brand LogoGradient-text Mont fs-5 px-3"
+				href="/"><span class="fw-bolder">ULSAN GREEN HOSPITAL </span></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse Sans"
+				id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-1 fw-bolder">
+					<li class="nav-item nav-link">진료예약</li>
+					<!-- <li class="nav-item nav-link">건강정보</li> -->
+					<li class="nav-item nav-link">진료파트</li>
+					<!-- <li class="nav-item nav-link">나눔소통</li> -->
+					<li class="nav-item nav-link">병원안내</li>
+				</ul>
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
+					<li class="nav-item"><a href="LogIn"
+						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
+					<li class="nav-item"><a href="SignUp"
+						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
-<header> </header>
+	</nav>
+	<header class="print-hide"> </header>
+</div>

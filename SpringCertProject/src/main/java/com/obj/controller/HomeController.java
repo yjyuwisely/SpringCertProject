@@ -53,24 +53,4 @@ public class HomeController {
 		logger.info("Welcome Issue!");
 		return "Issue";
 	}
-	
-	@GetMapping("generalCert")
-	public String generalCertPage() {
-		logger.info("Welcome generalCert!");
-		return "generalCert";
-	}
-	
-	@GetMapping("inoutConf")
-	public String hospitalizationanddischargeconfPage() {
-		logger.info("Welcome hospitalization and discharge conf!");
-		return "inoutConf";
-	}
-	
-	@GetMapping("meditreatConf")
-	public String medicaltreatmentconfpage() {
-		logger.info("Welcome medical treatment conf!");
-		return "meditreatConf";
-	}
-	
-
 }

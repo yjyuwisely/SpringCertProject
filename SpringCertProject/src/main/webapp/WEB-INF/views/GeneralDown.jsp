@@ -52,7 +52,8 @@
 					<td colspan="3" class="text-start">${cert.disease}</td>
 				</tr>
 		</table>
-		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이 진료받았음을 확인함.</p>
+		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이
+			진료받았음을 확인함.</p>
 		<p class="dateCheif text-center">
 			<c:set var="myDate" value="<%=new java.util.Date()%>" />
 			<fmt:formatDate value="${myDate}" pattern="yyyy년 MM월 dd일" />
