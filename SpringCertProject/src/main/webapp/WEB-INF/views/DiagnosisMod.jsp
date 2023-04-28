@@ -48,11 +48,11 @@
 							
 						</div>
 						<form action="dignosisUpdate" method="post" class="text-end Sans text-muted mb-3">
-						<input type="hidden" id="memId" name="id" value="${joinMapVal.id}">
+<%-- 						<input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
 						<input type="hidden" id="memId" name="id" value="${member.id}">
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
-								<td colspan='2' class="fs-5 Sans fw-light pb-3 ">환자 : ${joinMapVal.name}</td>
+								<td colspan='2' class="fs-5 Sans fw-light pb-3">환자 : ${joinMapVal.name}</td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td><select id="patientcode" name="patientcode"
 								class="mb-3 form-control">
@@ -96,7 +96,7 @@
 								class=" form-control mb-3"></td>
 							</tr>
 						</table>
-						<input type="submit" value="수정하기">
+						<input id="ModSubBTN" type="submit" value="수정하기" onclick="Check_CD()">
 						</form>
 					</div>
 					<div class="row justify-content-center Sans my-4">
@@ -125,5 +125,7 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="resources/js/digSetParam.js"></script>
+	<script src="resources/js/ModSubBTN.js"></script>
+	
 </body>
 </html>

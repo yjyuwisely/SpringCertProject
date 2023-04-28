@@ -5,8 +5,8 @@
 		that share a common field (id). -->
 	<!-- 진료확인서 -->
 	
-	<select id="GeneralDown" resultType="com.obj.model.CertificateVO">
-		SELECT name, residentid, disease
+	<select id="GeneralDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease
 		FROM member AS m
 		INNER JOIN certificate AS c
 		ON m.id = c.id <!-- 동일 칼럼: id -->
@@ -27,8 +27,8 @@
 	</resultMap> -->
 	
 	<!-- 입,퇴원확인서 -->
-	<select id="InoutDown" resultType="com.obj.model.CertificateVO">
-		SELECT name, residentid, disease, admission_date, discharge_date
+	<select id="InoutDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease, admission_date, discharge_date
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id
@@ -50,8 +50,8 @@
 	</resultMap> -->
 	
 	<!-- 수술확인서 -->
-	<select id="SergDown" resultType="com.obj.model.CertificateVO">
-		SELECT name, residentid, disease, operation, surg_date
+	<select id="SergDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease, operation, surg_date
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id

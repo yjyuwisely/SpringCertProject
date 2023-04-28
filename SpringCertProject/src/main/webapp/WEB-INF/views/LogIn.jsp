@@ -60,6 +60,7 @@
 										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary btn-lg d-inline-block 
 									col-12 fw-bolder fs-4 mt-1"
 										id="submitButton" type="submit">로그인</button>
+								<input type="hidden" name="id" value="${generalAcc.id}">
 								</div>
 							</form>
 						</div>

@@ -29,7 +29,7 @@ public class LogInController {
 	public String memberLogIn(HttpSession session, MemberVO member, Model model) {
 		String email = member.getEmail();
 		String pass = member.getPassword();
-		String doctor =member.getDoctor();
+		MemberVO loggedInMember = logserv.memberLogIn(member);
 		
 		if (logserv.memberLogIn(member)==null) {	// 회원이 아닐때
 			logger.info("LogIn failed member is = {}", member);
@@ -37,11 +37,14 @@ public class LogInController {
 		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("doctor", email);
-			model.addAttribute("admin", logserv.memberLogIn(member));
+			model.addAttribute("admin", loggedInMember);
 			return "redirect:/Admin";
 		}else {		// 일반회원일때
 			logger.info("common user LogIn Success member is = {}", member);
-			session.setAttribute("common", logserv.memberLogIn(member));
+			logger.info("common user LogIn Success loggedInMember is = {}", loggedInMember);
+			session.setAttribute("common", loggedInMember);
+			model.addAttribute("generalAcc", loggedInMember);
+			
 			return "redirect:/";
 			}
 	}
