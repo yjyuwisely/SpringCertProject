@@ -29,10 +29,10 @@ public interface CertificateMapper {
 
 package com.obj.mapper;
 
-import com.obj.model.CertificateVO;
+import com.obj.model.MemberCertJoinVO;
  
 public interface CertificateMapper {
-	public CertificateVO GeneralDown(CertificateVO member);
-	public CertificateVO InoutDown(CertificateVO member);
-	public CertificateVO SergDown(CertificateVO member);
+	public MemberCertJoinVO GeneralDown(MemberCertJoinVO member);
+	public MemberCertJoinVO InoutDown(MemberCertJoinVO member);
+	public MemberCertJoinVO SergDown(MemberCertJoinVO member);
 }

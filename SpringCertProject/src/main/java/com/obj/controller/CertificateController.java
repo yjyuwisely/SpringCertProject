@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.obj.model.CertificateVO;
+import com.obj.model.MemberCertJoinVO;
 import com.obj.service.CertificateService;
 
 @Controller
@@ -22,7 +23,7 @@ public class CertificateController {
 	
 	//진료확인서
 	@GetMapping("/GeneralDown")
-	public String GeneralDown(Model model, CertificateVO member, HttpSession session){
+	public String GeneralDown(Model model, MemberCertJoinVO member, HttpSession session){
 		// model.addAttribute(String name, Object value);
 		//: value 객체를 name 이름으로 추가함. 뷰 코드에서는 name으로 지정한 이름을 통해서 value를 사용함.
 		model.addAttribute("cert", certServ.GeneralDown(member));
@@ -32,7 +33,7 @@ public class CertificateController {
 	
 	//입,퇴원확인서
 	@GetMapping("/InoutDown")
-	public String InoutDown(Model model, CertificateVO member, HttpSession session){
+	public String InoutDown(Model model, MemberCertJoinVO member, HttpSession session){
 		model.addAttribute("cert", certServ.InoutDown(member));
 		logger.info("This is for Hospitalization certificate download. = {}", member);
 		return "/InoutDown";
@@ -40,7 +41,7 @@ public class CertificateController {
 	
 	//수술확인서
 	@GetMapping("/SergDown")
-	public String SergDown(Model model, CertificateVO member, HttpSession session){
+	public String SergDown(Model model, MemberCertJoinVO member, HttpSession session){
 		model.addAttribute("cert", certServ.SergDown(member));
 		logger.info("This is for Surgical certificate download. {}", member);
 		return "/SergDown";
