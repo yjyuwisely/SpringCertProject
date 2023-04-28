@@ -2,7 +2,7 @@
  * patientMod 진단서 작성페이지 id값 가지고 post로 페이지 이동
  */
 console.log("patientWrite connect");
-
+console.log("id = " + id);
 function patientWrite(id,name){
     let f = document.createElement('form');
     let objId;
@@ -23,4 +23,5 @@ function patientWrite(id,name){
     f.setAttribute('action', 'patientWriteUp');
     document.body.appendChild(f);
     f.submit();
+    console.log("id = " + id);
 }

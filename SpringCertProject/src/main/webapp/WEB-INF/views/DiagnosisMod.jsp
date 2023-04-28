@@ -39,8 +39,7 @@
 						<div class="mb-3 p-0">
 							<div class="text-left">
 								<h1 class="display-5 fw-bolder">
-									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정</span>
-									${member.id}
+									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정 ${joinMapVal.id}</span>
 								</h1>
 							</div>
 								<!-- <% String email = (String) session.getAttribute("doctor"); %>  -->
@@ -49,13 +48,11 @@
 							
 						</div>
 						<form action="dignosisUpdate" method="post" class="text-end Sans text-muted mb-3">
-						<input type="hidden" id="memId" name="id" value="${member.id}"
-									class=" form-control mb-3">
+						<input type="hidden" id="memId" name="id" value="${joinMapVal.id}">
+						<input type="hidden" id="memId" name="id" value="${member.id}">
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
-								<td class="fs-5 Sans fw-light pb-3 ">환자 : ${member.name}</td>
-								<td><input type="text" name="name"
-									class=" form-control mb-3"></td>
+								<td colspan='2' class="fs-5 Sans fw-light pb-3 ">환자 : ${joinMapVal.name}</td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td><select id="patientcode" name="patientcode"
 								class="mb-3 form-control">
@@ -69,30 +66,33 @@
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">Diagnostic</td>
 								<td colspan="3"><textarea id="Diagnostic" name="Diagnostic"
-								class="mb-3 form-control" rows="2">
+								class="mb-3 form-control" rows="2">${joinMapVal.patientVal[0].diagnostic}
 								</textarea></td>
 							</tr>
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">입원 날짜</td>
-								<td><input type="date" id="start" name="start"
+								<td><input type="date" id="admission_date" name="admission_date"
+									value="${joinMapVal.patientVal[0].admission_date}"
 									class=" form-control mb-3"></td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">퇴원 날짜</td>
-								<td><input type="date" id="end" name="end"
+								<td><input type="date" id="discharge_date" name="discharge_date"
+									value="${joinMapVal.patientVal[0].discharge_date}"
 									class=" form-control mb-3"></td>
 							</tr>
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">상병명</td>
 								<td><input type="text" id="disease" name="disease"
 									class=" form-control mb-3" 
-									value="${modelPatientVal.disease}"></td>
+									value="${joinMapVal.patientVal[0].disease}"></td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">수술명</td>
 								<td><input type="text" id="operation" name="operation"
-									value="${patientVal.operation}"
+									value="${joinMapVal.patientVal[0].operation}"
 									class=" form-control mb-3"></td>
 							</tr>
 							<tr>
 							<td class=" fs-5 Sans fw-light ps-3 pb-3">수술 날짜</td>
 							<td colspan='3'><input type="date" id="surg_date" name="surg_date"
+								value="${joinMapVal.patientVal[0].surg_date}" 
 								class=" form-control mb-3"></td>
 							</tr>
 						</table>

@@ -4,14 +4,15 @@ import java.sql.Date;
 
 public class PatientVO {
 	
+	//Date타입 3개 우선 String으로 바꿈
 	private String id;
 	private String Diagnostic;
 	private String patientcode;
-	private Date admission_date;
-	private Date discharge_date;
+	private String admission_date;
+	private String discharge_date;
 	private String disease;
 	private String operation;
-	private Date surg_date;
+	private String surg_date;
 	
 
 	public String getId() {
@@ -32,18 +33,6 @@ public class PatientVO {
 	public void setPatientcode(String patientcode) {
 		this.patientcode = patientcode;
 	}
-	public Date getAdmission_date() {
-		return admission_date;
-	}
-	public void setAdmission_date(Date admission_date) {
-		this.admission_date = admission_date;
-	}
-	public Date getDischarge_date() {
-		return discharge_date;
-	}
-	public void setDischarge_date(Date discharge_date) {
-		this.discharge_date = discharge_date;
-	}
 	public String getDisease() {
 		return disease;
 	}
@@ -56,10 +45,22 @@ public class PatientVO {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	public Date getSurg_date() {
+	public String getAdmission_date() {
+		return admission_date;
+	}
+	public void setAdmission_date(String admission_date) {
+		this.admission_date = admission_date;
+	}
+	public String getDischarge_date() {
+		return discharge_date;
+	}
+	public void setDischarge_date(String discharge_date) {
+		this.discharge_date = discharge_date;
+	}
+	public String getSurg_date() {
 		return surg_date;
 	}
-	public void setSurg_date(Date surg_date) {
+	public void setSurg_date(String surg_date) {
 		this.surg_date = surg_date;
 	}
 	@Override

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.obj.mapper.AdminMapper">
+
 <select id="memberList" resultType="com.obj.model.MemberVO">
 select * from member where doctor='n'
 
@@ -12,7 +13,8 @@ select * from member where doctor='n'
 <insert id="diagnosis" parameterType="com.obj.model.PatientVO">
 INSERT INTO certificate 
 (id, Diagnostic, patientcode, admission_date, discharge_date, disease, operation, surg_date) 
-VALUES (#{id}, #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation}, #{surg_date});
+VALUES 
+(#{id}, #{Diagnostic}, #{patientcode}, #{admission_date}, #{discharge_date}, #{disease}, #{operation}, #{surg_date});
 </insert>
 
 <select id="digSelect" resultType="com.obj.model.PatientVO">
@@ -23,6 +25,7 @@ SELECT * FROM certificate
 UPDATE certificate
   SET
     Diagnostic = #{Diagnostic},
+    patientcode = #{patientcode},
     admission_date = #{admission_date},
     discharge_date = #{discharge_date},
     disease = #{disease},
@@ -30,5 +33,80 @@ UPDATE certificate
     surg_date = #{surg_date}
   WHERE id = #{id}
 </update>
+
+<!-- VO사용 left JOIN -->
+<select id="memCertJoin"
+	resultType="com.obj.model.MemberCertJoinVO">
+	SELECT
+	m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
+	c.discharge_date, c.patientcode
+	FROM member m
+	LEFT JOIN certificate c
+	ON m.id=c.id
+	where doctor='n'
+</select>
+
+<!-- resultMap사용 JOIN -->
+<select id="digModifyJoinMap" parameterType="com.obj.model.MemberVO" resultMap="memberResultMap">
+	SELECT
+	m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
+	c.discharge_date, c.patientcode
+	FROM member m
+	JOIN certificate c
+	ON m.id=c.id
+	WHERE m.id=#{id}
+</select>
+
+<resultMap type="com.obj.model.MemberVO" id="memberResultMap">
+	<result column="name" property="name"/>
+	<result column="residentid" property="residentid"/>
+	<collection property="patientVal" resultMap="patientVal"/>
+</resultMap>
+
+<resultMap type="com.obj.model.PatientVO" id="patientVal">
+		<result column="diagnostic" property="diagnostic"/>
+		<result column="disease" property="disease"/>
+		<result column="operation" property="operation"/>
+		<result column="surg_date" property="surg_date"/>
+		<result column="admission_date" property="admission_date"/>
+		<result column="discharge_date" property="discharge_date"/>
+		<result column="patientcode" property="patientcode"/>
+</resultMap>
+
+<!-- ${컨트롤러 모델변수명.콜렉션의 프로퍼티 이름.원하는 칼럼명} 이렇게 해보자 -->
+
+
+<!-- <select id="selectXXX" parameterType="AaaVo" resultMap="AaaVo"> -->
+<!-- <resultMap type="BbbVo" id="BbbVo"> -->
+<!--     <result column="BBB_UID" property="bbbUid"/> -->
+<!--     <result column="BBB_COL1" property="bbbCol1"/> -->
+<!-- </resultMap> -->
+ 
+<!-- <resultMap type="AaaVo" id="AaaVo"> -->
+<!--     <result column="AAA_UID" property="aaaUid"/> -->
+<!--     <result column="AAA_COL1" property="aaaCol1"/> -->
+<!--     <result column="AAA_COL2" property="aaaCol2"/> -->
+<!--     <collection property="bbbVo" resultMap="BbbVo"/> -->
+<!-- </resultMap> -->
+
+
+<!-- <resultMap type="com.obj.model.MemberVO" -->
+<!-- 	id="joinTableResultMap"> -->
+<!-- 	<id column="id" property="id" /> -->
+<!-- 	<result column="name" property="name" /> -->
+<!-- 	<result column="residentid" property="residentid" /> -->
+<!-- 	<collection property="patientVal" -->
+<!-- 		ofType="com.obj.model.PatientVO"> -->
+<!-- 		<id column="id" property="id" /> -->
+<!-- 		<result column="diagnostic" property="diagnostic" /> -->
+<!-- 		<result column="disease" property="disease" /> -->
+<!-- 		<result column="operation" property="operation" /> -->
+<!-- 		<result column="surg_date" property="surg_date" /> -->
+<!-- 		<result column="admission_date" property="admission_date" /> -->
+<!-- 		<result column="discharge_date" property="discharge_date" /> -->
+<!-- 		<result column="patientcode" property="patientcode" /> -->
+<!-- 	</collection> -->
+<!-- </resultMap> -->
+
 
 </mapper>

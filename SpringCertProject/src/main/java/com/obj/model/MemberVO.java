@@ -1,5 +1,7 @@
 package com.obj.model;
 
+import java.util.List;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
@@ -16,6 +18,8 @@ public class MemberVO {
 	@Min(value = 18, message = "미성년자는 가입할 수 없습니다.")
 	private String residentid;
 	private String phone;
+	private String doctor;
+	private List<PatientVO> patientVal;
 	
 	
 	
@@ -55,11 +59,26 @@ public class MemberVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public String getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(String doctor) {
+		this.doctor = doctor;
+	}
+	public List<PatientVO> getPatientVal() {
+		return patientVal;
+	}
+	public void setPatientVal(List<PatientVO> patientVal) {
+		this.patientVal = patientVal;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", email=" + email + ", password=" + password + ", name=" + name + ", residentid="
-				+ residentid + ", phone=" + phone + "]";
+				+ residentid + ", phone=" + phone + ", doctor=" + doctor + ", patientVal=" + patientVal + "]";
 	}
+	
+
+	
 	
 
 	

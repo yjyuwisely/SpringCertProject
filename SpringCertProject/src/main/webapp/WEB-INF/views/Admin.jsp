@@ -60,61 +60,62 @@
 								<th class="DarkText-gradient mb-5">작성하기</th>
 								<th class="DarkText-gradient mb-5">수정</th>
 							</tr>
-							<c:forEach items="${member}" var="member" varStatus="status">
-							<input type="hidden" id="id" value="${member.id}">
+							<c:forEach items="${memcertVal}" var="memcertVal">
+							<input type="hidden" id="id" value="${memcertVal.id}">
+							<input type="hidden" id="diagnostic" value="${memcertVal.diagnostic}">
 								<tr class="col text-center mb-lg-3 rounded-4 Sans fw-light">
 									<td class="py-3">
 										<!-- 환자이름  -->
-										<div id="name">${member.name}</div>
+										<div id="name">${memcertVal.name}</div>
 									</td>
 									<td class="py-3">
 										<!-- 주민등록번호  -->
-										<div>${member.residentid}</div>
+										<div>${memcertVal.residentid}</div>
 									</td>
-									<c:forEach items="${docdig}" var="docdig">
-									<c:if test="${docdig.id eq member.id}">
+<%-- 									<c:forEach items="${docdig}" var="docdig"> --%>
+<%-- 									<c:if test="${docdig.id eq member.id}"> --%>
 									<td class="py-3">
 										<!-- 병명  disease -->
-										<div>${docdig.disease}&nbsp;</div>
+										<div>${memcertVal.disease}</div>
 									</td>
 									<td class="py-3">
 										<!-- 수술명 surgery -->
-										<div>${docdig.operation}&nbsp;</div>
+										<div>${memcertVal.operation}</div>
 									</td>
 									<td class="py-3">
 										<!-- 수술 날짜 strat -->
-										<div>${docdig.surg_date}&nbsp;</div>
+										<div>${memcertVal.surg_date}</div>
 									</td>
 									<td class="py-3">
 										<!-- 입원 날짜 start -->
-										<div>${docdig.admission_date}&nbsp;</div>
+										<div>${memcertVal.admission_date}</div>
 									</td>
 									<td class="py-3">
 										<!-- 퇴원 날짜 end -->
-										<div>${docdig.discharge_date}&nbsp;</div>
+										<div>${memcertVal.discharge_date}</div>
 									</td>
 									<td class="py-3">
 										<!-- 환자 코드 pcode -->
-										<div>${docdig.patientcode}&nbsp;</div>
+										<div>${memcertVal.patientcode}</div>
 									</td>
-									</c:if>
-									</c:forEach>									
+<%-- 									</c:if> --%>
+<%-- 									</c:forEach>						 --%>
 									<td class="py-3">
 										<!-- 작성하기 -->
 										<div>
 <!-- 											<a href="#" id="IdName" -->
-											<a href="javascript:patientWrite('${member.id}', '${member.name}')"
+											<a href="javascript:patientWrite('${memcertVal.id}', '${memcertVal.name}')"
 												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
 										</div>
 									</td>	
 									<td class="py-3">
 										<!-- 수정하기 -->
 										<div>
-											<a href="javascript:patientModify('${member.id}', '${member.name}')"
+											<a href="javascript:patientModify('${memcertVal.id}', '${memcertVal.name}')"
 												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">수정하기</a>
 										</div>
 									</td>								
-									</tr>					
+								</tr>				
 							</c:forEach>
 						</table>
 					</div>

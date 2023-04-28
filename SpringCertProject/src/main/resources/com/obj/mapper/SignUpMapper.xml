@@ -4,7 +4,10 @@
 <mapper namespace="com.obj.mapper.SignUpMapper">
 
 <insert id="memberJoin">
-	insert into member values (#{email}, #{password}, #{name}, #{residentid}, #{phone})
+	insert into member
+	(email, password, name, residentid, phone) 
+	values 
+	(#{email}, #{password}, #{name}, #{residentid}, #{phone})
 </insert>
 
 

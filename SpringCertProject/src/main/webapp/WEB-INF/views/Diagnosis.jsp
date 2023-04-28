@@ -53,9 +53,7 @@
 									class=" form-control mb-3">
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
-								<td class="fs-5 Sans fw-light pb-3 ">환자 : ${member.name}</td>
-								<td><input type="text" name="name"
-									class=" form-control mb-3"></td>
+								<td class="fs-5 Sans fw-light pb-3 " colspan="2">환자 : ${member.name}</td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td><select id="patientcode" name="patientcode"
 								class="mb-3 form-control">
@@ -74,10 +72,10 @@
 							</tr>
 							<tr>
 								<td class=" fs-5 Sans fw-light pb-3">입원 날짜</td>
-								<td><input type="date" id="start" name="start"
+								<td><input type="date" id="admission_date" name="admission_date"
 									class=" form-control mb-3"></td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">퇴원 날짜</td>
-								<td><input type="date" id="end" name="end"
+								<td><input type="date" id="discharge_date" name="discharge_date"
 									class=" form-control mb-3"></td>
 							</tr>
 							<tr>
@@ -99,7 +97,7 @@
 						<a
 							class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
 							href="javascript:digInsert
-							('${member.id}')" onclick="sendParam('${member.id}', Diagnostic, patientcode, disease, operation)">
+							('${member.id}')" onclick="sendParam()">
 							저장하기 </a>
 					</div>
 				</div>

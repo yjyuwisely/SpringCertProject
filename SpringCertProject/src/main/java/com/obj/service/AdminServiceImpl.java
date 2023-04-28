@@ -1,6 +1,7 @@
 package com.obj.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.obj.mapper.AdminMapper;
+import com.obj.model.MemberCertJoinVO;
 import com.obj.model.MemberVO;
 import com.obj.model.PatientVO;
 
@@ -37,6 +39,16 @@ public class AdminServiceImpl implements AdminService {
 		logger.info("AdminServiceImpl patient = {}", patient);
 		adMapper.dignosisUpdate(patient);
 		
+	}
+
+	@Override
+	public List<MemberCertJoinVO> memCertJoin(MemberCertJoinVO memcertVal) {
+		return adMapper.memCertJoin(memcertVal);
+	}
+
+	@Override
+	public MemberVO digModifyJoinMap(MemberVO member) {
+		return adMapper.digModifyJoinMap(member);
 	}
 
 }

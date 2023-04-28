@@ -29,16 +29,17 @@ public class LogInController {
 	public String memberLogIn(HttpSession session, MemberVO member, Model model) {
 		String email = member.getEmail();
 		String pass = member.getPassword();
+		String doctor =member.getDoctor();
 		
-		if (logserv.memberLogIn(member)==null) {
+		if (logserv.memberLogIn(member)==null) {	// 회원이 아닐때
 			logger.info("LogIn failed member is = {}", member);
 			return "/LogIn";
-		}else if(email.equals("admin@admin.com") && pass.equals("1234")){
+		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("doctor", email);
 			model.addAttribute("admin", logserv.memberLogIn(member));
 			return "redirect:/Admin";
-		}else {
+		}else {		// 일반회원일때
 			logger.info("common user LogIn Success member is = {}", member);
 			session.setAttribute("common", logserv.memberLogIn(member));
 			return "redirect:/";
@@ -50,7 +51,6 @@ public class LogInController {
 	@GetMapping("log-out")
 	public String logout(HttpServletRequest request) {
 		logger.info("user Log Out");
-
 		HttpSession session = request.getSession();
 		session.invalidate();
 		return "/home";
