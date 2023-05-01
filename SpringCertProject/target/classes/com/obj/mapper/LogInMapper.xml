@@ -5,7 +5,7 @@
 
 
 <select id="memberLogIn" resultType="com.obj.model.MemberVO">
-	select id, email, password
+	select id, email, password, doctor
 	from member
 	where email = #{email} and password = #{password}
 </select>

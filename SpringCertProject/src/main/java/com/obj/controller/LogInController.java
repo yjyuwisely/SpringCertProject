@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.obj.model.MemberVO;
 import com.obj.service.LogInService;
@@ -29,14 +27,16 @@ public class LogInController {
 	public String memberLogIn(HttpSession session, MemberVO member, Model model) {
 		String email = member.getEmail();
 		String pass = member.getPassword();
+		String doctor = member.getDoctor();
 		MemberVO loggedInMember = logserv.memberLogIn(member);
 		
 		if (logserv.memberLogIn(member)==null) {	// 회원이 아닐때
 			logger.info("LogIn failed member is = {}", member);
 			return "/LogIn";
-		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
+		}else if(email.equals("admin@admin.com") && pass.equals("1234") && doctor.equals("y")){	// 관리자일때
 			logger.info("super user LogIn Success member is = {}", member);
-			session.setAttribute("doctor", email);
+			session.setAttribute("adminUser", loggedInMember);
+			logger.info("adminUser user LogIn Success loggedInMember is = {}", loggedInMember);
 			model.addAttribute("admin", loggedInMember);
 			return "redirect:/Admin";
 		}else {		// 일반회원일때

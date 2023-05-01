@@ -49,7 +49,7 @@
 						인터넷을 사용하여 언제, 어디서든 증명서를 발급받을 수 있으며, 즉시 출력 또는 다운로드할 수 있습니다.</p>
 					<div
 						class="InternetIssue gap-3 d-sm-flex Sans justify-content-sm-center me-5">
-						<a href="Issue"
+						<a href="Issue?id=${common.id}"
 							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
 							<span></span> <span></span> <span></span> <span></span> 인터넷 발급
 							바로가기
