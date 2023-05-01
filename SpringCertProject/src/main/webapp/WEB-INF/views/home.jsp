@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.obj.model.MemberVO" %>   
+<%@ page import="com.obj.model.MemberVO" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,11 +40,9 @@
 					<h1 class="fw-bolder mb-4">
 						<span class="text-gradient d-inline">증명서 인터넷 발급</span>
 					</h1>
-					<%
-						MemberVO member = (MemberVO) session.getAttribute("common");
-					%>
-					<div>common id = ${common.id}</div>
-					<div>member = <%=member%></div>
+<%-- 					<% MemberVO member = (MemberVO) session.getAttribute("common");%> --%>
+<%-- 					<div>common id = ${common.id}</div> --%>
+<%-- 					<div>member = <%=member%></div> --%>
 					<p class="lead rounded text-dark fs-4 fw-light mb-3"
 						style="text-shadow: 1px 1px 1px white; background-color: rgba(255, 255, 255, 0.5);">
 						인터넷을 사용하여 언제, 어디서든 증명서를 발급받을 수 있으며, 즉시 출력 또는 다운로드할 수 있습니다.</p>
@@ -54,10 +53,12 @@
 							<span></span> <span></span> <span></span> <span></span> 인터넷 발급
 							바로가기
 						</a>
+					<c:if test="${not empty adminUser.id}">
 						<a href="Admin"
 							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
 							관리자페이지
 						</a>
+					</c:if>
 					</div>
 				</div>
 			</div>

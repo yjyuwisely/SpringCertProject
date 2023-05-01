@@ -6,6 +6,6 @@ import com.obj.model.MemberVO;
 @Mapper
 public interface SignUpMapper {
 	public void memberJoin(MemberVO member);
-	
+	int checkEmail(String email);
 
 }

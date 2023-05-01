@@ -49,6 +49,9 @@ public class AdminController {
 	@PostMapping("/patientWriteUp")
 	public String membermodify(Model model, MemberVO member) {
 		logger.info("Welcome Diagnosis!");
+		String getId = member.getId();
+		String prefix = getId.substring(0, 8);
+		model.addAttribute("prefix", prefix);
 		model.addAttribute("member", member);
 		model.addAttribute("joinMapVal", adServ.digModifyJoinMap(member));
 		return "/Diagnosis";
@@ -79,14 +82,13 @@ public class AdminController {
 	
 	
 	/* 
-	 * 리스트에서 pcode가있을때 는 버튼 수정하기로 바꾸기 <c:if>?
-	 * 조인? 관리자페이지에서 최초작성 완료된것 접근금지 수정만가능하게
-	 * 관리자 계정 넣고 홈화면에 버튼 없애기
-	 * admin페이지 수정작성버튼 다시 보기
-	 * 수정하고 환자분류 alert창띄우고 그냥 update됨 ㅋ
-	 * 관리자 로그인 해결하기 Y/N 분기
-	 * email중복 검사 체크
-	 * 로그인전에 관리자인지 확인할수있는 방법? 주말에 보기
+	 * 홈화면에 버튼 없애기
+	 * 관리자 로그인 해결하기 Y/N 분기 -> 뭔가 애매하긴한데 지금 할수있는건 별로 없는듯
+	 * post이동으로 다 바꾸기, ajax쓸수있는곳은 다써보기 -> https://devmg.tistory.com/221
+	 * 페이징/ajax검색 둘중하나... 검색할까
+	 * 
+	 * 증명서 다운 post 처리하기
+	 * 이름/주민없이 회원가입이나 로그인처리 XX -> 정규식에서 캇 가능?
 	 * 
 	 * 
 	 * 조인! 제일 중요 (완료)
@@ -107,13 +109,28 @@ public class AdminController {
 	 * 새로고침하면 회원가입 복사됨 ㅋㅋ -> 포워드방식으로 진입해서 그렇다고함
 	 * RedirectView redirectView = new RedirectView("/", false);
 	 * modelAndView.setView(redirectView); 모델앤뷰에서 리다이렉트 직접지정해줘서 완료
-	 * 로그아웃버튼 만들기ㅇ/js 정규식, 약관? ㅇ
+	 * email중복 검사 체크 (완료)
+	 * 리스트에서 pcode가있을때 는 버튼 수정하기로 바꾸기 (완료)
+	 * pcode에 1번 → 일반진단만 작성, 2번 →  입퇴원 날짜만, 3번 →  입퇴원 날짜, 수술명, 수술날짜: 해당코드에 맞게 (완료)
+	 * 환자번호 UUID 뒤에짜르고 보여줘보기 ex)환자명/환자번호 : 박환자/298382 (완료)
+	 * 수정하고 환자분류 alert창띄우고 그냥 update됨 ㅋ (완료)
+	 * 로그아웃버튼 만들기/관리자여부에따른 관리자페이지 버튼 (완료)
+	 * js 정규식, 약관? ㅇ
 	 * 
 	 * 정보가져오고 싶으면 mapper.xml에서 셀렉트에 원하는칼럼 넣어야함 
 	 * ${joinMapVal.patientVal[0].disease}은 리스트의 첫 번째 요소에서 disease 속성을 가져온다는 의미
 	 * digSetParam.js 입퇴원 날짜 바꾸기 Diagnosis 적성/수정 두개 jps 입퇴원 날짜 고치기, 이전값 value로 쏴줌
-	 * 맵퍼xml수정, 컨트롤러랑 서비스맵퍼 확인하기, jsp에서 값은 배열로 전달
+	 * 리다이렉트 쓰면 model초기화됨 --> model안먹힘 로그인페이지 ------리다이렉트 사용시 model 사용법 or 다른방법 찾기 -----------
+	 * PPT 만들기...
+	 * 
+	 * 
+	 * 주말동안 한거 (학원가서 덮어쓰기 할것들)
+	 * 1. email중복 검사 체크 (완료) 회원가입 관련 모든파일들 + js ㅇㅋ
+	 * 2. admin.jsp 작성,수정버튼<c:if>쓴거 ㅇㅋ
+	 * 3. code에 맞게 input태그 열리게하기 js새로만든거랑 jsp에 추가하기 ㅇㅋ
+	 * 4. 환자번호 부여하기 patientWriteUp컨트롤러랑 Diagnosis.jsp prefix써주기
 	 * pmp자격증?
+	 * 
 	 */
 
 	

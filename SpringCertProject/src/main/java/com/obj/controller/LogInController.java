@@ -33,9 +33,10 @@ public class LogInController {
 		if (logserv.memberLogIn(member)==null) {	// 회원이 아닐때
 			logger.info("LogIn failed member is = {}", member);
 			return "/LogIn";
-		}else if(email.equals("admin@admin.com") && pass.equals("1234") && doctor.equals("y")){	// 관리자일때
+		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("adminUser", loggedInMember);
+			session.setAttribute("adminEmail", email);
 			logger.info("adminUser user LogIn Success loggedInMember is = {}", loggedInMember);
 			model.addAttribute("admin", loggedInMember);
 			return "redirect:/Admin";
@@ -44,14 +45,14 @@ public class LogInController {
 			logger.info("common user LogIn Success loggedInMember is = {}", loggedInMember);
 			session.setAttribute("common", loggedInMember);
 			model.addAttribute("generalAcc", loggedInMember);
-			
 			return "redirect:/";
 			}
+		
 	}
 	
 	//로그아웃 컨트롤러
 	//로그아웃버튼 만들고 주소매핑
-	@GetMapping("log-out")
+	@GetMapping("logOut")
 	public String logout(HttpServletRequest request) {
 		logger.info("user Log Out");
 		HttpSession session = request.getSession();

@@ -50,8 +50,14 @@
 					<li class="nav-item nav-link">병원안내</li>
 				</ul>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
+				<c:if test="${empty common.id and empty adminUser.id}">
 					<li class="nav-item"><a href="LogIn"
 						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
+				</c:if>
+				<c:if test="${not empty common.id or not empty adminUser.id}">
+				<li class="nav-item"><a href="logOut"
+						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그아웃</a></li>
+				</c:if>
 					<li class="nav-item"><a href="SignUp"
 						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
 				</ul>

@@ -18,6 +18,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet" />
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
@@ -40,7 +42,6 @@
 							<div class="text-left">
 								<h1 class="display-5 fw-bolder">
 									<span class="text-gradient d-inline pb-2 fs-1">진단서 작성</span>
-									${member.id}
 								</h1>
 							</div>
 							<form action="doctorIn" method="post" class="text-end Sans text-muted mb-3">
@@ -53,10 +54,12 @@
 									class=" form-control mb-3">
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
-								<td class="fs-5 Sans fw-light pb-3 " colspan="2">환자 : ${member.name}</td>
+								<td class="fs-5 Sans fw-light pb-3 " colspan="2">
+								환자이름/환자코드 : ${member.name}/${prefix}
+								</td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td><select id="patientcode" name="patientcode"
-								class="mb-3 form-control">
+								class="mb-3 form-control" onchange="selectCode(this.value)">
 										<option value="-">선택하세요</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -118,6 +121,9 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script src="resources/js/toggleInput.js"></script>
 	<script src="resources/js/digSetParam.js"></script>
 	<script src="resources/js/ModSubBTN.js"></script>
 </body>

@@ -10,6 +10,8 @@
 	(#{email}, #{password}, #{name}, #{residentid}, #{phone})
 </insert>
 
-
+<select id="checkEmail" parameterType="String" resultType="int">
+SELECT COUNT(email) FROM member WHERE email=#{email};
+</select>
 
 </mapper>

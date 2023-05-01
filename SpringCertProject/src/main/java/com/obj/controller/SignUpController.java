@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -40,5 +42,17 @@ public class SignUpController {
         logger.info("insert Success member ={}", member);
         return modelAndView;
         }
+	}
+	
+	@PostMapping("checkEmail")
+	@ResponseBody
+	public String checkEmail(@RequestParam("email") String email) {
+		logger.info("checkEmail ={}", email);
+	    int count = signserv.checkEmail(email);
+	    if (count > 0) {
+	        return "duplicate";
+	    } else {
+	        return "available";
+	    }
 	}
 }	

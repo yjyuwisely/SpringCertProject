@@ -43,7 +43,27 @@ function sendParam(){
     console.log("info : "+info.id)
     console.log("info : "+info.Diagnostic)
     if (patientcode === '-'){
-    	alert('환자 분류코드를 선택해주세요');
+    	Swal.fire(
+				  '환자코드!',
+				  '환자코드가 시급해요!',
+				  'question'
+				)
+    	return false;
+    }
+    if (Diagnostic === null || Diagnostic === ''){
+    	Swal.fire(
+				  '진단!',
+				  '환자는 진단이 필요해여!',
+				  'question'
+				)
+    	return false;
+    }
+    if (disease === null || disease === ''){
+    	Swal.fire(
+				  '병!고통!',
+				  '이환자는 뭔가 병이있어요!',
+				  'question'
+				)
     	return false;
     }
     for (const key in info){

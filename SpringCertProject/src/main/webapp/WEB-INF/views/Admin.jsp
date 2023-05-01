@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.obj.model.MemberVO" %>  
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,11 +40,9 @@
 					<span class="text-gradient d-inline fs-2">관리자 페이지</span><br>
 				</h1>
 			</div>
-			<form action="doctorIn" method="post" class="text-end Sans text-muted mb-3">
-			<% String email = (String) session.getAttribute("doctor"); %>
-			관리자 계정 : Doctor
-			<%=email%>
-			</form>
+			<% String email = (String) session.getAttribute("adminEmail"); %> 
+			관리자 계정 : Doctor : <%=email%>
+			
 			<div class="row gx-5 justify-content-center">
 				<div class="card shadow border-0 rounded-4 mb-5">
 					<div class="card-body row align-items-center">
@@ -57,8 +56,7 @@
 								<th class="DarkText-gradient mb-5">입원 날짜</th>
 								<th class="DarkText-gradient mb-5">퇴원 날짜</th>
 								<th class="DarkText-gradient mb-5">환자 코드</th>
-								<th class="DarkText-gradient mb-5">작성하기</th>
-								<th class="DarkText-gradient mb-5">수정</th>
+								<th class="DarkText-gradient mb-5">작성/수정</th>
 							</tr>
 							<c:forEach items="${memcertVal}" var="memcertVal">
 							<input type="hidden" id="id" value="${memcertVal.id}">
@@ -98,8 +96,7 @@
 										<!-- 환자 코드 pcode -->
 										<div>${memcertVal.patientcode}</div>
 									</td>
-<%-- 									</c:if> --%>
-<%-- 									</c:forEach>						 --%>
+									<c:if test="${empty memcertVal.patientcode and empty memcertVal.diagnostic}">
 									<td class="py-3">
 										<!-- 작성하기 -->
 										<div>
@@ -108,13 +105,16 @@
 												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
 										</div>
 									</td>	
+									</c:if>
+									<c:if test="${not empty memcertVal.patientcode}">
 									<td class="py-3">
 										<!-- 수정하기 -->
 										<div>
 											<a href="javascript:patientModify('${memcertVal.id}', '${memcertVal.name}')"
 												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">수정하기</a>
 										</div>
-									</td>								
+									</td>
+									</c:if>									
 								</tr>				
 							</c:forEach>
 						</table>

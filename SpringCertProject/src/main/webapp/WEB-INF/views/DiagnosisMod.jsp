@@ -96,7 +96,7 @@
 								class=" form-control mb-3"></td>
 							</tr>
 						</table>
-						<input id="ModSubBTN" type="submit" value="수정하기" onclick="Check_CD()">
+						<input id="ModSubBTN" type="submit" value="수정하기" onclick="Check_CD(event)">
 						</form>
 					</div>
 					<div class="row justify-content-center Sans my-4">

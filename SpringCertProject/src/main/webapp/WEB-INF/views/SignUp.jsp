@@ -46,8 +46,10 @@
 						</div>
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="email" id="email" type="email"
-								placeholder="이메일" /> <label for="email">이메일</label>
+							onchange = "checkEmail(email)" placeholder="이메일" /> 
+							<label for="email">이메일</label>
 						</div>
+						<div id="emailMsg"></div>
 						<div class="Sans form-floating text-muted mb-3">
 							<input class="form-control" name="password" id="password"
 								placeholder="비밀번호" type="password" /> <label for="password">비밀번호</label>
@@ -97,6 +99,8 @@
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 		<!-- Core theme JS-->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="resources/js/checkEmail.js"></script>
 		<script src="resources/js/scripts.js"></script>
 		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 		<script>
