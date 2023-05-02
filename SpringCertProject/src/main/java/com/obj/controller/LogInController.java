@@ -27,8 +27,8 @@ public class LogInController {
 	public String memberLogIn(HttpSession session, MemberVO member, Model model) {
 		String email = member.getEmail();
 		String pass = member.getPassword();
-		String doctor = member.getDoctor();
 		MemberVO loggedInMember = logserv.memberLogIn(member);
+		String name = loggedInMember.getName();
 		
 		if (logserv.memberLogIn(member)==null) {	// 회원이 아닐때
 			logger.info("LogIn failed member is = {}", member);
@@ -36,18 +36,19 @@ public class LogInController {
 		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("adminUser", loggedInMember);
-			session.setAttribute("adminEmail", email);
+			session.setAttribute("name", name);
 			logger.info("adminUser user LogIn Success loggedInMember is = {}", loggedInMember);
 			model.addAttribute("admin", loggedInMember);
 			return "redirect:/Admin";
 		}else {		// 일반회원일때
 			logger.info("common user LogIn Success member is = {}", member);
 			logger.info("common user LogIn Success loggedInMember is = {}", loggedInMember);
+			logger.info("common user LogIn Success name is = {}", name);
 			session.setAttribute("common", loggedInMember);
-			model.addAttribute("generalAcc", loggedInMember);
+			session.setAttribute("commonName", name);
+			//model.addAttribute("generalAcc", loggedInMember);
 			return "redirect:/";
 			}
-		
 	}
 	
 	//로그아웃 컨트롤러
@@ -57,6 +58,7 @@ public class LogInController {
 		logger.info("user Log Out");
 		HttpSession session = request.getSession();
 		session.invalidate();
+		//session.removeAttribute("common"); 세션 선택삭제
 		return "/home";
 	}
 	

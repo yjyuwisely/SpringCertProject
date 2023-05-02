@@ -40,13 +40,21 @@
 					<span class="text-gradient d-inline fs-2">관리자 페이지</span><br>
 				</h1>
 			</div>
-			<% String email = (String) session.getAttribute("adminEmail"); %> 
-			관리자 계정 : Doctor : <%=email%>
-			
+		<%
+			String name = (String) session.getAttribute("name");
+		%>
+		관리자 계정: Doctor :
+		<%=name%>
+		<select id="type" name="type">
+			<option selected value="N">이름</option>
+			<option value="D">병명</option>
+			</select>
+			<input type="text" name="keyword" id="keyword" 
+			class=" form-control mb-3" onkeyup="search(this);">
 			<div class="row gx-5 justify-content-center">
 				<div class="card shadow border-0 rounded-4 mb-5">
 					<div class="card-body row align-items-center">
-						<table class="text-center" style="empty-cells: show;">
+						<table id="memberList" class="text-center" style="empty-cells: show;">
 							<tr class="fw-bold">
 								<th class="DarkText-gradient mb-5">환자 이름</th>
 								<th class="DarkText-gradient mb-5">주민등록번호</th>
@@ -134,11 +142,13 @@
 		</div>
 	</footer> -->
 	<!-- Bootstrap core JS-->
-<script src="/resources/js/patientWrite.js"></script>
-<script src="/resources/js/patientModify.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/resources/js/patientWrite.js"></script>
+<script src="/resources/js/patientModify.js"></script>
+<script src="/resources/js/searchingFunc.js"></script>
 
 </body>
 </html>

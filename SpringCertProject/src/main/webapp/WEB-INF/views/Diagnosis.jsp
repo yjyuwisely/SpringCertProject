@@ -45,9 +45,8 @@
 								</h1>
 							</div>
 							<form action="doctorIn" method="post" class="text-end Sans text-muted mb-3">
-								<!-- <% String email = (String) session.getAttribute("doctor"); %>  -->
-								관리자 계정: Doctor
-								<!-- <%=email%> -->
+								 <% String name = (String) session.getAttribute("name"); %>
+								관리자 계정: Doctor : <%=name%>
 							</form>
 						</div>
 						<input type="hidden" id="memId" name="id" value="${member.id}"
@@ -55,7 +54,7 @@
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
 								<td class="fs-5 Sans fw-light pb-3 " colspan="2">
-								환자이름/환자코드 : ${member.name}/${prefix}
+								환자이름/환자코드 : ${member.name}/(${prefix})
 								</td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td><select id="patientcode" name="patientcode"

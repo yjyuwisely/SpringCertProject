@@ -1,5 +1,6 @@
 package com.obj.model;
 
+
 public class MemberCertJoinVO {
 	private String id;
 	private String name;
@@ -11,6 +12,10 @@ public class MemberCertJoinVO {
 	private String disease;
 	private String operation;
 	private String surg_date;
+	
+	//searching func
+	private String keyword;
+	private String type;
 	
 	public String getId() {
 		return id;
@@ -72,12 +77,24 @@ public class MemberCertJoinVO {
 	public void setSurg_date(String surg_date) {
 		this.surg_date = surg_date;
 	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
 		return "MemberCertJoinVO [id=" + id + ", name=" + name + ", residentid=" + residentid + ", Diagnostic="
 				+ Diagnostic + ", patientcode=" + patientcode + ", admission_date=" + admission_date
 				+ ", discharge_date=" + discharge_date + ", disease=" + disease + ", operation=" + operation
-				+ ", surg_date=" + surg_date + "]";
+				+ ", surg_date=" + surg_date + ", keyword=" + keyword + ", type=" + type + "]";
 	}
 	
 	

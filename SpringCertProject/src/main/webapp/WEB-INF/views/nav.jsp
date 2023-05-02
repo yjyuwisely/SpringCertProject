@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.obj.model.MemberVO" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -54,7 +55,19 @@
 					<li class="nav-item"><a href="LogIn"
 						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
 				</c:if>
-				<c:if test="${not empty common.id or not empty adminUser.id}">
+				<% String admname = (String) session.getAttribute("name"); %>
+				<% String comname = (String) session.getAttribute("commonName"); %>
+					<c:choose>
+						<c:when test="${not empty common.id}">
+							<li class="nav-item"><a href="LogIn"
+								class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6"><%=comname%></a></li>
+						</c:when>
+						<c:when test="${not empty adminUser.id}">
+							<li class="nav-item"><a href="LogIn"
+								class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6"><%=admname%></a></li>
+						</c:when>
+					</c:choose>
+					<c:if test="${not empty common.id or not empty adminUser.id}">
 				<li class="nav-item"><a href="logOut"
 						class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그아웃</a></li>
 				</c:if>

@@ -12,6 +12,10 @@ public class CertificateVO {
 	private String operation;
 	private String surg_date;
 	
+	//searching func
+	private String keyword;
+	private String type;
+	
 	public String getId() {
 		return id;
 	}
@@ -71,6 +75,18 @@ public class CertificateVO {
 	}
 	public void setSurg_date(String surg_date) {
 		this.surg_date = surg_date;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	@Override
 	public String toString() {

@@ -36,7 +36,7 @@ UPDATE certificate
 
 <!-- VO사용 left JOIN -->
 <select id="memCertJoin"
-	resultType="com.obj.model.CertificateVO">
+	resultType="com.obj.model.MemberCertJoinVO">
 	SELECT
 	m.id, m.name, m.residentid, c.diagnostic, c.disease, c.operation, c.surg_date, c.admission_date,
 	c.discharge_date, c.patientcode
@@ -73,24 +73,24 @@ UPDATE certificate
 		<result column="patientcode" property="patientcode"/>
 </resultMap>
 
-<!-- <select id="memSearch" resultType="com.obj.model.CertificateVO"> -->
-<!-- 	SELECT name,residentid, disease, operation, surg_date, -->
-<!-- 	admission_date, discharge_date, patientcode -->
-<!-- 	FROM member m -->
-<!-- 	JOIN certificate c -->
-<!-- 	ON m.id = c.id -->
-<!-- 	where doctor='n' -->
-<!-- 	<if test="keyword != null"> -->
-<!-- 		<choose> -->
-<!-- 			<when test="type=='N'.toString()"> -->
-<!-- 				and name like concat('%',#{keyword},'%') -->
-<!-- 			</when> -->
-<!-- 			<when test="type=='D'.toString()"> -->
-<!-- 				and disease like concat('%',#{keyword},'%') -->
-<!-- 			</when> -->
-<!-- 		</choose> -->
-<!-- 	</if> -->
-<!-- </select> -->
+<select id="memSearch" parameterType="com.obj.model.MemberCertJoinVO" resultType="com.obj.model.MemberCertJoinVO">
+	SELECT name,residentid, disease, operation, surg_date,
+	admission_date, discharge_date, patientcode
+	FROM member m
+	JOIN certificate c
+	ON m.id = c.id
+	where doctor='n'
+	<if test="keyword != null">
+		<choose>
+			<when test="type=='N'.toString()">
+				and name like concat('%',#{keyword},'%')
+			</when>
+			<when test="type=='D'.toString()">
+				and disease like concat('%',#{keyword},'%')
+			</when>
+		</choose>
+	</if>
+</select>
 
 <!-- ${컨트롤러 모델변수명.콜렉션의 프로퍼티 이름.원하는 칼럼명} 이렇게 해보자 -->
 

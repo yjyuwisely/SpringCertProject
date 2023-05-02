@@ -42,17 +42,16 @@
 									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정 ${joinMapVal.id}</span>
 								</h1>
 							</div>
-								<!-- <% String email = (String) session.getAttribute("doctor"); %>  -->
-								관리자 계정: Doctor
-								<!-- <%=email%> -->
-							
+								<% String name = (String) session.getAttribute("name"); %>
+								관리자 계정: Doctor : <%=name%>
 						</div>
 						<form action="dignosisUpdate" method="post" class="text-end Sans text-muted mb-3">
 <%-- 						<input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
 						<input type="hidden" id="memId" name="id" value="${member.id}">
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
-								<td colspan='2' class="fs-5 Sans fw-light pb-3">환자 : ${joinMapVal.name}</td>
+								<td colspan='2' class="fs-5 Sans fw-light pb-3">
+								환자이름/환자코드 : ${joinMapVal.name}/(${prefix})</td>
 								<td class=" fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
 								<td><select id="patientcode" name="patientcode"
 								class="mb-3 form-control">

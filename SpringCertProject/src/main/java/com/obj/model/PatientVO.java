@@ -1,7 +1,5 @@
 package com.obj.model;
 
-import java.sql.Date;
-
 public class PatientVO {
 	
 	//Date타입 3개 우선 String으로 바꿈

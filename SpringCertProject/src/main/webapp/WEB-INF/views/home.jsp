@@ -20,6 +20,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet" />
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
@@ -48,12 +50,22 @@
 						인터넷을 사용하여 언제, 어디서든 증명서를 발급받을 수 있으며, 즉시 출력 또는 다운로드할 수 있습니다.</p>
 					<div
 						class="InternetIssue gap-3 d-sm-flex Sans justify-content-sm-center me-5">
-						<a href="Issue?id=${common.id}"
-							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
-							<span></span> <span></span> <span></span> <span></span> 인터넷 발급
-							바로가기
-						</a>
-					<c:if test="${not empty adminUser.id}">
+						<c:choose>
+							<c:when test="${empty common.id}">
+								<a href="#"
+								class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder" 
+								onclick="logFirst()">인터넷 발급
+								바로가기</a>
+							</c:when>
+							<c:otherwise>
+								<a href="Issue?id=${common.id}"
+									class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
+									<span></span> <span></span> <span></span> <span></span> 인터넷 발급
+									바로가기
+								</a>
+							</c:otherwise>
+						</c:choose>
+						<c:if test="${not empty adminUser.id}">
 						<a href="Admin"
 							class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
 							관리자페이지
@@ -78,6 +90,9 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script src="resources/js/etc.js"></script>
 	<script src="resources/js/scripts.js"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
