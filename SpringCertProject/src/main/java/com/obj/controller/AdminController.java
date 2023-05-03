@@ -23,15 +23,6 @@ import com.obj.model.PatientVO;
 public class AdminController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-	@ModelAttribute("memVal")
-	public MemberVO memb() {
-		return new MemberVO();
-	}
-	@ModelAttribute("patientVal")
-	public PatientVO patient() {
-		return new PatientVO();
-	}
-	
 	@Autowired
 	AdminService adServ;
 	
@@ -101,6 +92,9 @@ public class AdminController {
 	 * 증명서 다운 post 처리하기
 	 * 이름/주민없이 회원가입이나 로그인처리 XX -> 정규식에서 캇 가능?
 	 * 
+	 * admin.jsp에서 onclick지우자 2번정의해서 콘솔 에러난거임/검색결과를 못읽는경우가 있다 수정하자
+	 * js파일 안되면 search 이거랑 /search 이거 바꿔보기
+	 * issueRequest.js 추가 컨트롤러 post맵핑/jsp a태그 주소 변경
 	 * 
 	 * 조인! 제일 중요 (완료)
 	 * 증명서 리스트는 지금처럼 3개 띄우고 신청클릭시 해당페이지에 내역없음 띄우기

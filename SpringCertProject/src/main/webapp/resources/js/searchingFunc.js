@@ -48,9 +48,14 @@ $(document).ready(function() {
 					'<td class="py-3">' + cert.admission_date + '</td>' +
 					'<td class="py-3">' + cert.discharge_date + '</td>' +
 					'<td class="py-3">' + cert.patientcode + '</td>' +
-					'<td class="py-3"><a href="#">작성/수정</a></td></tr>';
-//					'<td class="py-3"><a href="javascript:patientModify(\'' + memcertVal.id + '\', \'' + memcertVal.name + '\')" ' +
-//			        'class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성/수정</a></td></tr>';
+					'<td class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">' +
+					'<a href="#">작성/수정</a></td></tr>';
+					
+					
+					//'<td class="py-3"><a href="javascript:patientWrite(' + ${memcertVal.id} + ', ' + ${memcertVal.name} + ')"'+
+					//'class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성/수정</a></td></tr>';
+					//<a href="javascript:patientWrite('${memcertVal.id}', '${memcertVal.name}')"
+					//class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
 					tableBody.append(row);
 					console.log(data);
 				}}

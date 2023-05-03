@@ -59,7 +59,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="GeneralDown?id=${common.id}"> 신청 </a></td>
+										href="javascript:GeneralRequest('${common.id}')"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td>
@@ -69,7 +69,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="InoutDown"> 신청 </a></td>
+										href="javascript:InOutRequest('${common.id}')"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td>
@@ -79,7 +79,7 @@
 									</td>
 									<td class="Sans"><a
 										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="SergDown?id=${common.id}"> 신청 </a></td>
+										href="javascript:SergRequest('${common.id}')"> 신청 </a></td>
 								</tr>
 								<tr>
 									<td colspan=2 class="Sans pt-3 mb-3"><a
@@ -107,6 +107,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
+	<script src="resources/js/issueRequest.js"></script>
 	<script src="resources/js/scripts.js"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>

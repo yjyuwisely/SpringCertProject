@@ -50,7 +50,7 @@
 			<option value="D">병명</option>
 			</select>
 			<input type="text" name="keyword" id="keyword" 
-			class=" form-control mb-3" onkeyup="search(this);">
+			class=" form-control mb-3">
 			<div class="row gx-5 justify-content-center">
 				<div class="card shadow border-0 rounded-4 mb-5">
 					<div class="card-body row align-items-center">

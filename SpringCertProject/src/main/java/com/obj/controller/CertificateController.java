@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.obj.model.MemberCertJoinVO;
 import com.obj.service.CertificateService;
@@ -21,7 +22,7 @@ public class CertificateController {
 	CertificateService certServ;
 	
 	//진료확인서
-	@GetMapping("/GeneralDown")
+	@PostMapping("/GeneralDown")
 	public String GeneralDown(Model model, MemberCertJoinVO member, HttpSession session){
 		// model.addAttribute(String name, Object value);
 		//: value 객체를 name 이름으로 추가함. 뷰 코드에서는 name으로 지정한 이름을 통해서 value를 사용함.
@@ -31,7 +32,7 @@ public class CertificateController {
 	}
 	
 	//입,퇴원확인서
-	@GetMapping("/InoutDown")
+	@PostMapping("/InoutDown")
 	public String InoutDown(Model model, MemberCertJoinVO member, HttpSession session){
 		model.addAttribute("cert", certServ.InoutDown(member));
 		logger.info("This is for Hospitalization certificate download. = {}", member);
@@ -39,7 +40,7 @@ public class CertificateController {
 	}
 	
 	//수술확인서
-	@GetMapping("/SergDown")
+	@PostMapping("/SergDown")
 	public String SergDown(Model model, MemberCertJoinVO member, HttpSession session){
 		model.addAttribute("cert", certServ.SergDown(member));
 		logger.info("This is for Surgical certificate download. {}", member);

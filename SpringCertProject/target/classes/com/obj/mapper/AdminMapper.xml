@@ -43,7 +43,9 @@ UPDATE certificate
 	FROM member m
 	LEFT JOIN certificate c
 	ON m.id=c.id
-	where doctor='n'
+	<![CDATA[
+	where doctor='n' and m.name <> ''
+	]]>
 </select>
 
 <!-- resultMap사용 JOIN -->

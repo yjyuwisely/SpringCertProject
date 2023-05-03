@@ -9,10 +9,14 @@ function checkEmail(email) {
         url: "checkEmail",
         data: {email: email},
         success: function (result) {
-            if (result === 'available') {
+        	if(email === 'aaa'){
+            	$('#emailMsg').html('not available Email');
+                $('#emailMsg').css('color', 'red');
+                $('#email').val('');
+            }else if (result === 'available') {
                 $('#emailMsg').html('Available Email');
                 $('#emailMsg').css('color', 'lightgreen');
-            } else {
+            }else {
                 $('#emailMsg').html('Duplicate Email');
                 $('#emailMsg').css('color', 'red');
                 $('#email').val('');
@@ -20,3 +24,10 @@ function checkEmail(email) {
         }
     });
 }
+
+
+//if(email == 'a'){
+//	$('#emailMsg').html('not available Email');
+//    $('#emailMsg').css('color', 'red');
+//    return false;
+//}

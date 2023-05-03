@@ -51,10 +51,16 @@
 					<div
 						class="InternetIssue gap-3 d-sm-flex Sans justify-content-sm-center me-5">
 						<c:choose>
-							<c:when test="${empty common.id}">
+							<c:when test="${empty common.id and empty adminUser.id}">
 								<a href="#"
 								class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder" 
 								onclick="logFirst()">인터넷 발급
+								바로가기</a>
+							</c:when>
+							<c:when test="${not empty adminUser.id}">
+								<a href="#"
+								class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder" 
+								onclick="dontDirector()">인터넷 발급
 								바로가기</a>
 							</c:when>
 							<c:otherwise>

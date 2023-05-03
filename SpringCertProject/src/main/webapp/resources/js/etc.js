@@ -12,3 +12,12 @@ function logFirst(){
 			)
 	
 }
+
+function dontDirector(){
+	Swal.fire(
+			  '멈춰!',
+			  '김이박최원장은 이걸 신청할일이 없어요!',
+			  'error'
+			)
+	
+}
