@@ -25,30 +25,35 @@ public class LogInController {
 	//프론트에서 각 주소 매핑시켜야함
 	@PostMapping("memberIn")
 	public String memberLogIn(HttpSession session, MemberVO member, Model model) {
+		System.out.println(member);
 		String email = member.getEmail();
 		String pass = member.getPassword();
 		MemberVO loggedInMember = logserv.memberLogIn(member);
-		String name = loggedInMember.getName();
+		String result=null;
 		
-		if (logserv.memberLogIn(member)==null) {	// 회원이 아닐때
+		if (loggedInMember==null) {	// 회원이 아닐때
 			logger.info("LogIn failed member is = {}", member);
-			return "/LogIn";
+			model.addAttribute("errorMsg", "errorMsg");
+			result = "redirect:/LogIn";
 		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
+			String name = loggedInMember.getName();
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("adminUser", loggedInMember);
 			session.setAttribute("name", name);
 			logger.info("adminUser user LogIn Success loggedInMember is = {}", loggedInMember);
 			model.addAttribute("admin", loggedInMember);
-			return "redirect:/Admin";
-		}else {		// 일반회원일때
+			result = "redirect:/Admin";
+		}else if(loggedInMember!=null){		// 일반회원일때
+			String name = loggedInMember.getName();
 			logger.info("common user LogIn Success member is = {}", member);
 			logger.info("common user LogIn Success loggedInMember is = {}", loggedInMember);
 			logger.info("common user LogIn Success name is = {}", name);
 			session.setAttribute("common", loggedInMember);
 			session.setAttribute("commonName", name);
 			//model.addAttribute("generalAcc", loggedInMember);
-			return "redirect:/";
-			}
+			result = "redirect:/";
+		}
+		return result;
 	}
 	
 	//로그아웃 컨트롤러

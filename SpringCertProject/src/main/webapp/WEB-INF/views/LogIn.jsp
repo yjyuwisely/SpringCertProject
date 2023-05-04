@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -62,7 +63,11 @@
 										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary btn-lg d-inline-block 
 									col-12 fw-bolder fs-4 mt-1"
 										id="submitButton" type="submit">로그인</button>
-								<input type="hidden" name="id" value="${generalAcc.id}">
+										
+										<c:if test="${not empty errorMsg}">
+										<input type="text" id="errorMsg" value="${errorMsg}">
+										</c:if>
+<%-- 								<input type="hidden" name="id" value="${generalAcc.id}"> --%>
 								</div>
 							</form>
 						</div>

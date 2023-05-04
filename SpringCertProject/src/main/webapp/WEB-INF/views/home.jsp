@@ -64,7 +64,7 @@
 								바로가기</a>
 							</c:when>
 							<c:otherwise>
-								<a href="Issue?id=${common.id}"
+								<a href="javascript:movingToIssue('${common.id}')"
 									class="bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
 									<span></span> <span></span> <span></span> <span></span> 인터넷 발급
 									바로가기
@@ -99,6 +99,7 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 	<script src="resources/js/etc.js"></script>
+	<script src="resources/js/issueRequest.js"></script>
 	<script src="resources/js/scripts.js"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>

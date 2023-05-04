@@ -3,6 +3,22 @@
  */
 console.log("issueRequest connect");
 
+function movingToIssue(id){
+	let f = document.createElement('form');
+    let objId;
+    let objName;
+    objId = document.createElement('input');
+    objId.setAttribute('type', 'hidden');
+    objId.setAttribute('name', 'id');
+    objId.setAttribute('value', id);
+    
+    f.appendChild(objId);
+    f.setAttribute('method', 'post');
+    f.setAttribute('action', 'Issue');
+    document.body.appendChild(f);
+    f.submit();
+}
+
 function GeneralRequest(id){
 	let f = document.createElement('form');
     let objId;
@@ -50,3 +66,4 @@ function SergRequest(id){
     document.body.appendChild(f);
     f.submit();
 }
+
