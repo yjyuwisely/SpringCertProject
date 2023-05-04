@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<% request.setCharacterEncoding("utf-8");%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,7 +37,7 @@
 <!-- Contents -->
 <body>
 	<div class="container px-5">
-		<div class="row  justify-content-center">
+		<div class="row justify-content-center">
 			<div class="col-9">
 				<div class="border-0 px-5 mb-5">
 					<div class="card-body row px-3 pb-4">
@@ -45,22 +47,20 @@
 									<span class="text-gradient d-inline pb-2 fs-1">진단서 작성</span>
 								</h1>
 							</div>
-							<form action="doctorIn" method="post"
-								class="text-end Sans text-muted mb-3">
-								<% String name = (String) session.getAttribute("name"); %>
-								관리자 계정: Doctor :
-								<%=name%>
+							<form action="doctorIn" method="post" class="text-end Sans text-muted mb-3">
+								<%
+									String name = (String) session.getAttribute("name");
+								%>
+								관리자 계정: Doctor: <%=name%>
 							</form>
 						</div>
-						<input type="hidden" id="memId" name="id" value="${member.id}"
-							class=" form-control mb-3">
+						<input type="hidden" id="memId" name="id" value="${member.id}" class="form-control mb-3">
 						<table class="text-left DiagnosisTable">
 							<tr class="pt-5">
-								<td class="fs-5 Sans fw-light pb-3 " colspan="2">환자이름/환자코드
-									: ${member.name}/(${prefix})</td>
+								<td colspan="2" class="fs-5 Sans fw-light pb-3">환자이름/환자코드: ${member.name}/(${prefix})</td>
 								<td class="fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
-								<td><select id="patientcode" name="patientcode"
-									class="mb-3 form-control" onchange="selectCode(this.value)">
+								<td class="ps-3"><select id="patientcode" name="patientcode" 
+								class="form-control mb-3" onchange="selectCode(this.value)">
 										<option value="-">선택하세요</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -90,17 +90,17 @@
 							</tr>
 							<tr>
 								<td class="fs-5 Sans text-muted fw-light pb-3">수술명</td>
-								<td colspan="3"><input type="text" id="operation" name="operation"
-									class="form-control text-muted mb-3"></td>
+								<td colspan="3"><input type="text" id="operation"
+									name="operation" class="form-control text-muted mb-3"></td>
 							</tr>
 						</table>
-					</div>
-					<div class="row justify-content-center Sans my-4">
-						<a
-							class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
-							href="javascript:digInsert
+						<div class="row justify-content-center Sans my-4">
+							<a
+								class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
+								href="javascript:digInsert
 							('${member.id}')"
-							onclick="sendParam()"> 저장하기 </a>
+								onclick="sendParam()"> 저장하기 </a>
+						</div>
 					</div>
 				</div>
 			</div>

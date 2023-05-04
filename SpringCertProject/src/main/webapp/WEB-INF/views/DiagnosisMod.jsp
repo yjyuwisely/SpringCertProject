@@ -34,35 +34,31 @@
 <!-- Contents -->
 <body>
 	<div class="container px-5">
-		<div class="row  justify-content-center">
+		<div class="row justify-content-center">
 			<div class="col-9">
 				<div class="border-0 px-5 mb-5">
 					<div class="card-body row px-3 pb-4">
 						<div class="mb-3 p-0">
 							<div class="text-left">
 								<h1 class="display-5 fw-bolder">
-									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정
-										${joinMapVal.id}</span>
+									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정 ${joinMapVal.id}</span>
 								</h1>
 							</div>
 							<div class="text-end Sans text-muted mb-3">
 								<%
 									String name = (String) session.getAttribute("name");
 								%>
-								관리자 계정: Doctor :
-								<%=name%>
+								관리자 계정: Doctor: <%=name%>
 							</div>
 						</div>
-						<form action="dignosisUpdate" method="post" class="Sans mb-3">
+						<form action="dignosisUpdate" method="post" class="Sans ps-0 mb-3">
 							<%-- <input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
 							<input type="hidden" id="memId" name="id" value="${member.id}">
 							<table class="text-left DiagnosisTable">
 								<tr class="pt-5">
-									<td colspan='2' class="fs-5 Sans fw-light pb-3">환자이름/환자코드
-										: ${joinMapVal.name}/(${prefix})</td>
+									<td colspan='2' class="fs-5 Sans fw-light pb-3">환자이름/환자코드: ${joinMapVal.name}/(${prefix})</td>
 									<td class="fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
-									<td><select id="patientcode" name="patientcode"
-										class="mb-3 form-control">
+									<td class="ps-3"><select id="patientcode" name="patientcode" class="form-control mb-3">
 											<option value="-">선택하세요</option>
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -80,7 +76,7 @@
 									<td><input type="date" id="admission_date"
 										name="admission_date"
 										value="${joinMapVal.patientVal[0].admission_date}"
-										class="form-control mb-3"></td>
+										class="form-control mb-3 ps-3"></td>
 									<td class="fs-5 Sans fw-light ps-3 pb-3">퇴원 날짜</td>
 									<td><input type="date" id="discharge_date"
 										name="discharge_date"
