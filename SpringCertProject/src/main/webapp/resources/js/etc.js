@@ -7,7 +7,7 @@ console.log("etc connect!");
 function logFirst(){
 	Swal.fire(
 			  '로그인!',
-			  '로그인안하면 못봐요',
+			  '로그인 안 하면 못 봐요',
 			  'error'
 			)
 	
@@ -16,7 +16,7 @@ function logFirst(){
 function dontDirector(){
 	Swal.fire(
 			  '멈춰!',
-			  '김이박최원장은 이걸 신청할일이 없어요!',
+			  '김이박최원장은 이걸 신청할 일이 없어요!',
 			  'error'
 			)
 	

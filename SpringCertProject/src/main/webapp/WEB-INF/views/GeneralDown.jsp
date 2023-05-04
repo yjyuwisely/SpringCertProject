@@ -41,16 +41,16 @@
 	<div class="container col-xl-8 card shadow border-0 rounded-4 p-3">
 		<h1 class="text-center fw-bolder fs-2 m-2 pb-3">진료확인서</h1>
 		<table class="tablePrint table text-center mb-5">
-				<tr>
-					<td class="inputStyle fw-bold">환자 이름</td>
-					<td>${cert.name}</td>
-					<td class="inputStyle fw-bold">주민등록번호</td>
-					<td>${cert.residentid}</td>
-				</tr>
-				<tr>
-					<td class="inputStyle fw-bold">병명</td>
-					<td colspan="3" class="text-start">${cert.disease}</td>
-				</tr>
+			<tr>
+				<td class="inputStyle fw-bold">환자 이름</td>
+				<td>${cert.name}</td>
+				<td class="inputStyle fw-bold">주민등록번호</td>
+				<td>${cert.residentid}</td>
+			</tr>
+			<tr>
+				<td class="inputStyle fw-bold">병명</td>
+				<td colspan="3" class="text-start">${cert.disease}</td>
+			</tr>
 		</table>
 		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이
 			진료받았음을 확인함.</p>
@@ -64,7 +64,7 @@
 	<div class="print-hide text-center">
 		<button onclick="window.print()"
 			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4 "
-			href="Download">다운로드</button>
+			href="#">다운로드</button>
 	</div>
 </body>
 </html>

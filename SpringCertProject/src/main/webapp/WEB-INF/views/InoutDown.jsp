@@ -12,7 +12,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>입·퇴원 확인서</title>
-<!-- Favicon--> 
+<!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Custom Google font-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,7 +54,7 @@
 				<td>${cert.admission_date}</td>
 				<td class="inputStyle fw-bold">퇴원 날짜</td>
 				<td>${cert.discharge_date}</td>
-			</tr>	
+			</tr>
 		</table>
 		<p class="text-center" style="margin-bottom: 5rem;">위와 같이 입·퇴원을
 			확인함.</p>
@@ -68,7 +68,7 @@
 	<div class="print-hide text-center">
 		<button onclick="window.print()"
 			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4 "
-			href="Download"> 다운로드</button>
+			href="#">다운로드</button>
 	</div>
 </body>
 </html>
