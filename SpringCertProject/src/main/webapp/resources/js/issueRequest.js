@@ -3,6 +3,7 @@
  */
 console.log("issueRequest connect");
 
+
 function movingToIssue(id){
 	let f = document.createElement('form');
     let objId;
