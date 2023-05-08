@@ -48,9 +48,9 @@ public class HomeController {
 		return "SignUp";
 	}
 	
-	@PostMapping("Issue")
+/*	@PostMapping("Issue")
 	public String IssuePage() {
 		logger.info("Welcome Issue!");
 		return "Issue";
-	}
+	}*/
 }
