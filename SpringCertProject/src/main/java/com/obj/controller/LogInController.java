@@ -42,7 +42,7 @@ public class LogInController {
 			session.setAttribute("name", name);
 			logger.info("adminUser user LogIn Success loggedInMember is = {}", loggedInMember);
 			model.addAttribute("admin", loggedInMember);
-			result = "redirect:/Admin";
+			result = "redirect:/";
 		}else if(loggedInMember!=null){		// 일반회원일때
 			String name = loggedInMember.getName();
 			logger.info("common user LogIn Success member is = {}", member);

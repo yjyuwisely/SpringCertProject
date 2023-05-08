@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<%request.setCharacterEncoding("utf-8");%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -34,33 +36,34 @@
 <!-- Contents -->
 <body>
 	<main>
-		<div class="px-5">
-			<div class="text-left mb-2">
-				<h1 class="display-5 fw-bolder">
-					<span class="text-gradient d-inline fs-2">관리자 페이지</span><br>
-				</h1>
-			</div>
-			<div class="text-end text-muted">
-				<%
+	<div class="px-5">
+		<div class="text-left mb-2">
+			<h1 class="display-5 fw-bolder">
+				<span class="text-gradient d-inline fs-2">관리자 페이지</span><br>
+			</h1>
+		</div>
+		<div class="text-end text-muted">
+			<%
 				String name = (String) session.getAttribute("name");
-				%>
-				<p>
-					관리자 계정: Doctor:<%=name%></p>
+			%>
+			<p>
+				관리자 계정: Doctor:<%=name%></p>
+		</div>
+		<div class="d-flex justify-content-start">
+			<div class="d-flex align-items-center">
+				<select id="type" name="type"
+					class="form-select w-50 Sans my-3 me-1">
+					<option selected value="N">이름</option>
+					<option value="D">병명</option>
+				</select> <input type="text" name="keyword" id="keyword"
+					class="form-control my-3">
 			</div>
-			<div class="d-flex justify-content-start">
-				<div class="d-flex align-items-center">
-					<select id="type" name="type"
-						class="form-select w-50 Sans my-3 me-1">
-						<option selected value="N">이름</option>
-						<option value="D">병명</option>
-					</select> <input type="text" name="keyword" id="keyword"
-						class="form-control my-3">
-				</div>
-			</div>
-			<div class="row gx-5 justify-content-center">
-				<div class="card shadow border-0 rounded-4 mb-5">
-					<div class="card-body row align-items-center">
-						<table id="memberList" class="text-center"
+		</div>
+		<div class="row gx-5 justify-content-center">
+			<div class="card shadow border-0 rounded-4 mb-5">
+				<div class="card-body row align-items-center">
+					<!-- <div class="table-responsive"> -->
+						<table id="memberList" class="DiagnosisTable text-center"
 							style="empty-cells: show;">
 							<tr class="fw-bold">
 								<th class="DarkText-gradient mb-5">환자 이름</th>
@@ -141,6 +144,7 @@
 				</div>
 			</div>
 		</div>
+	<!-- </div> -->
 	</main>
 	<!-- Bootstrap core JS-->
 	<script
