@@ -21,6 +21,17 @@ public class CertificateController {
 	@Autowired
 	CertificateService certServ;
 	
+	//온라인 증명서 발급
+	@PostMapping("/Issue")
+	public String Issue(Model model, MemberCertJoinVO member, HttpSession session){
+		// model.addAttribute(String name, Object value);
+		//: value 객체를 name 이름으로 추가함. 뷰 코드에서는 name으로 지정한 이름을 통해서 value를 사용함.
+		// Add certificate data to model for JSP rendering
+		model.addAttribute("cert", certServ.Issue(member));
+		logger.info("Issue = {}", member);
+		return "/Issue";
+	}
+	
 	//진료확인서
 	@PostMapping("/GeneralDown")
 	public String GeneralDown(Model model, MemberCertJoinVO member, HttpSession session){

@@ -51,8 +51,7 @@
 						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="email" id="email" type="email"
 								onchange="checkEmail(email)" placeholder="이메일" /> <label
-								for="email">이메일</label> <span style="color: #dc3545"
-								id="emailMsg"></span>
+								for="email">이메일</label> <span id="emailMsg"></span>
 						</div>
 
 						<!-- 2. 비밀번호 -->
@@ -104,7 +103,7 @@
 						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="phone" id="phone"
 								placeholder="전화번호" type="text" required
-								pattern="/^\d{3}?\d{3,4}?\d{4}$/" onkeyup="validatePhone()" />
+								pattern="^\d{3}?\d{3,4}?\d{4}$" onkeyup="validatePhone()" />
 							<!-- pattern="01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$" -->
 							<label for="phone">휴대폰 번호 (숫자만 입력)</label>
 							<div class="valid-feedback">좋아요!</div>

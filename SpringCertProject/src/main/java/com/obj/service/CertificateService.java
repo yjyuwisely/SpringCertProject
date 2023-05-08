@@ -7,4 +7,5 @@ public interface CertificateService {
 	public MemberCertJoinVO GeneralDown(MemberCertJoinVO member);
 	public MemberCertJoinVO InoutDown(MemberCertJoinVO member);
 	public MemberCertJoinVO SergDown(MemberCertJoinVO member);
+	public MemberCertJoinVO Issue(MemberCertJoinVO member);
 }

@@ -14,6 +14,12 @@ public class CertificateServiceImpl implements CertificateService {
 	
 	// helping to check whether the developer what to override the correct method in the parent class or interface. 
 	// typically used when we want to change the default behavior of a basic service implementation in a product or in another module.
+	
+	@Override
+	public MemberCertJoinVO Issue(MemberCertJoinVO member){
+		return certMapper.Issue(member);
+	}
+	
 	@Override 
 	public MemberCertJoinVO GeneralDown(MemberCertJoinVO member){
 		return certMapper.GeneralDown(member);

@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<% request.setCharacterEncoding("utf-8");%>
+<%
+request.setCharacterEncoding("utf-8");
+%>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -26,6 +28,9 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/css/styles.css" rel="stylesheet" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- SweetAlert2 CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 </head>
 <!-- Navigation-->
 <jsp:include page="nav.jsp" flush="false" />
@@ -39,7 +44,10 @@
 				<div class="col-lg-8 col-xl-7 col-xxl-6">
 					<div class="text-center mb-3">
 						<h1 class="display-5 fw-bolder mb-4">
-							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급</span>
+							<span class="d-inline LogoGradient-text fs-1">온라인 증명서 발급 <input
+								name="patientcode" type="hidden" value="${cert.patientcode}"
+								id="patientcode">
+							</span>
 						</h1>
 					</div>
 					<div class="card shadow border-0 rounded-4 mb-5">
@@ -58,8 +66,9 @@
 											진료확인서</div>
 									</td>
 									<td class="Sans"><a
-										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="javascript:GeneralRequest('${common.id}')"> 신청 </a></td>
+										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+										id="linkGeneral"
+										href="javascript:GeneralRequest('${common.id}')">신청</a></td>
 								</tr>
 								<tr>
 									<td>
@@ -68,8 +77,8 @@
 											입·퇴원확인서</div>
 									</td>
 									<td class="Sans"><a
-										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="javascript:InOutRequest('${common.id}')"> 신청 </a></td>
+										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+										id="linkInout" href="javascript:InOutRequest('${common.id}')">신청</a></td>
 								</tr>
 								<tr>
 									<td>
@@ -78,8 +87,8 @@
 											수술확인서</div>
 									</td>
 									<td class="Sans"><a
-										class=" btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
-										href="javascript:SergRequest('${common.id}')"> 신청 </a></td>
+										class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-4 mb-2 fw-bolder fs-6"
+										id="linkSurg" href="javascript:SergRequest('${common.id}')">신청</a></td>
 								</tr>
 								<tr>
 									<td colspan=2 class="Sans pt-3 mb-3"><a
@@ -93,25 +102,18 @@
 			</div>
 		</div>
 	</div>
-	<!-- Footer-->
-	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
-		<div class=" px-5">
-			<div class="row align-items-end  flex-column ">
-				justify-content-between flex-sm-row
-				<div class="col-auto small m-0">Copyright &copy; Ulsan Green
-					Hospital by Team ABC 2023</div>
-			</div>
-		</div>
-	</footer> -->
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="resources/js/issueRequest.js"></script>
-	<script src="resources/js/scripts.js"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
 		AOS.init();
 	</script>
+	<!-- SweetAlert2 JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script src="resources/js/issueAlert.js"></script>
+	<script src="resources/js/issueRequest.js"></script>
 </body>
 </html>

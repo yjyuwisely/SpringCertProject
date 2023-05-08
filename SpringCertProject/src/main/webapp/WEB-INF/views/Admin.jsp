@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="com.obj.model.MemberVO" %>  
+<%@ page import="com.obj.model.MemberVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -40,21 +40,28 @@
 					<span class="text-gradient d-inline fs-2">관리자 페이지</span><br>
 				</h1>
 			</div>
-		<%
-			String name = (String) session.getAttribute("name");
-		%>
-		관리자 계정: Doctor :
-		<%=name%>
-		<select id="type" name="type">
-			<option selected value="N">이름</option>
-			<option value="D">병명</option>
-			</select>
-			<input type="text" name="keyword" id="keyword" 
-			class=" form-control mb-3">
+			<div class="text-end text-muted">
+				<%
+				String name = (String) session.getAttribute("name");
+				%>
+				<p>
+					관리자 계정: Doctor:<%=name%></p>
+			</div>
+			<div class="d-flex justify-content-start">
+				<div class="d-flex align-items-center">
+					<select id="type" name="type"
+						class="form-select w-50 Sans my-3 me-1">
+						<option selected value="N">이름</option>
+						<option value="D">병명</option>
+					</select> <input type="text" name="keyword" id="keyword"
+						class="form-control my-3">
+				</div>
+			</div>
 			<div class="row gx-5 justify-content-center">
 				<div class="card shadow border-0 rounded-4 mb-5">
 					<div class="card-body row align-items-center">
-						<table id="memberList" class="text-center" style="empty-cells: show;">
+						<table id="memberList" class="text-center"
+							style="empty-cells: show;">
 							<tr class="fw-bold">
 								<th class="DarkText-gradient mb-5">환자 이름</th>
 								<th class="DarkText-gradient mb-5">주민등록번호</th>
@@ -67,63 +74,67 @@
 								<th class="DarkText-gradient mb-5">작성/수정</th>
 							</tr>
 							<c:forEach items="${memcertVal}" var="memcertVal">
-							<input type="hidden" id="id" value="${memcertVal.id}">
-							<input type="hidden" id="diagnostic" value="${memcertVal.diagnostic}">
+								<input type="hidden" id="id" value="${memcertVal.id}">
+								<input type="hidden" id="diagnostic"
+									value="${memcertVal.diagnostic}">
 								<tr class="col text-center mb-lg-3 rounded-4 Sans fw-light">
 									<td class="py-3">
-										<!-- 환자이름  -->
+										<!-- 환자이름 name -->
 										<div id="name">${memcertVal.name}</div>
 									</td>
 									<td class="py-3">
-										<!-- 주민등록번호  -->
+										<!-- 주민등록번호 residentid -->
 										<div>${memcertVal.residentid}</div>
 									</td>
-<%-- 									<c:forEach items="${docdig}" var="docdig"> --%>
-<%-- 									<c:if test="${docdig.id eq member.id}"> --%>
+									<%-- 									<c:forEach items="${docdig}" var="docdig"> --%>
+									<%-- 									<c:if test="${docdig.id eq member.id}"> --%>
 									<td class="py-3">
 										<!-- 병명  disease -->
 										<div>${memcertVal.disease}</div>
 									</td>
 									<td class="py-3">
-										<!-- 수술명 surgery -->
+										<!-- 수술명 operation -->
 										<div>${memcertVal.operation}</div>
 									</td>
 									<td class="py-3">
-										<!-- 수술 날짜 strat -->
+										<!-- 수술 날짜 surg_date -->
 										<div>${memcertVal.surg_date}</div>
 									</td>
 									<td class="py-3">
-										<!-- 입원 날짜 start -->
+										<!-- 입원 날짜 admission_date -->
 										<div>${memcertVal.admission_date}</div>
 									</td>
 									<td class="py-3">
-										<!-- 퇴원 날짜 end -->
+										<!-- 퇴원 날짜 discharge_date -->
 										<div>${memcertVal.discharge_date}</div>
 									</td>
 									<td class="py-3">
-										<!-- 환자 코드 pcode -->
+										<!-- 환자 코드 patientcode -->
 										<div>${memcertVal.patientcode}</div>
 									</td>
-									<c:if test="${empty memcertVal.patientcode and empty memcertVal.diagnostic}">
-									<td class="py-3">
-										<!-- 작성하기 -->
-										<div>
-<!-- 											<a href="#" id="IdName" -->
-											<a href="javascript:patientWrite('${memcertVal.id}', '${memcertVal.name}')"
-												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
-										</div>
-									</td>	
+									<c:if
+										test="${empty memcertVal.patientcode and empty memcertVal.diagnostic}">
+										<td class="py-3">
+											<!-- 작성하기 -->
+											<div>
+												<!-- 											<a href="#" id="IdName" -->
+												<a
+													href="javascript:patientWrite('${memcertVal.id}', '${memcertVal.name}')"
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">작성하기</a>
+											</div>
+										</td>
 									</c:if>
 									<c:if test="${not empty memcertVal.patientcode}">
-									<td class="py-3">
-										<!-- 수정하기 -->
-										<div>
-											<a href="javascript:patientModify('${memcertVal.id}', '${memcertVal.name}')"
-												class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">수정하기</a>
-										</div>
-									</td>
-									</c:if>									
-								</tr>				
+										<td class="py-3">
+											<!-- 수정하기 -->
+											<div>
+												<a
+													href="javascript:patientModify('${memcertVal.id}', '${memcertVal.name}')"
+													class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block px-2 py-1 fs-6 fw-bolder">수정하기</a>
+											</div>
+										</td>
+									</c:if>
+								</tr>
 							</c:forEach>
 						</table>
 					</div>
@@ -131,24 +142,13 @@
 			</div>
 		</div>
 	</main>
-	<!-- Footer-->
-	<!-- 	<footer class="Sans mt-auto" style="text-shadow: 1px 1px 1px white">
-		<div class=" px-5">
-			<div class="row align-items-end  flex-column ">
-				justify-content-between flex-sm-row
-				<div class="col-auto small m-0">Copyright &copy; Ulsan Green
-					Hospital by Team ABC 2023</div>
-			</div>
-		</div>
-	</footer> -->
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/resources/js/patientWrite.js"></script>
-<script src="/resources/js/patientModify.js"></script>
-<script src="/resources/js/searchingFunc.js"></script>
-
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="/resources/js/patientWrite.js"></script>
+	<script src="/resources/js/patientModify.js"></script>
+	<script src="/resources/js/searchingFunc.js"></script>
 </body>
 </html>

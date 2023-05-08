@@ -33,85 +33,77 @@
 
 <!-- Contents -->
 <body>
-	<div class="container px-5">
-		<div class="row justify-content-center">
-			<div class="col-9">
-				<div class="border-0 px-5 mb-5">
-					<div class="card-body row px-3 pb-4">
-						<div class="mb-3 p-0">
-							<div class="text-left">
-								<h1 class="display-5 fw-bolder">
-									<span class="text-gradient d-inline pb-2 fs-1">진단서 수정 ${joinMapVal.id}</span>
-								</h1>
-							</div>
-							<div class="text-end Sans text-muted mb-3">
-								<%
-									String name = (String) session.getAttribute("name");
-								%>
-								관리자 계정: Doctor: <%=name%>
-							</div>
-						</div>
-						<form action="dignosisUpdate" method="post" class="Sans ps-0 mb-3">
-							<%-- <input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
-							<input type="hidden" id="memId" name="id" value="${member.id}">
-							<table class="text-left DiagnosisTable">
-								<tr class="pt-5">
-									<td colspan='2' class="fs-5 Sans fw-light pb-3">환자이름/환자코드: ${joinMapVal.name}/(${prefix})</td>
-									<td class="fs-5 Sans fw-light ps-3 pb-3">Patient Code</td>
-									<td class="ps-3"><select id="patientcode" name="patientcode" class="form-control mb-3">
-											<option value="-">선택하세요</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-									</select></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">Diagnostic</td>
-									<td colspan="3"><textarea id="Diagnostic"
-											name="Diagnostic" class="mb-3 form-control" rows="3">${joinMapVal.patientVal[0].diagnostic}
-								</textarea></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">입원 날짜</td>
-									<td><input type="date" id="admission_date"
-										name="admission_date"
-										value="${joinMapVal.patientVal[0].admission_date}"
-										class="form-control mb-3 ps-3"></td>
-									<td class="fs-5 Sans fw-light ps-3 pb-3">퇴원 날짜</td>
-									<td><input type="date" id="discharge_date"
-										name="discharge_date"
-										value="${joinMapVal.patientVal[0].discharge_date}"
-										class="form-control mb-3"></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">상병명</td>
-									<td><input type="text" id="disease" name="disease"
-										class="form-control mb-3"
-										value="${joinMapVal.patientVal[0].disease}"></td>
-									<td class="fs-5 Sans fw-light ps-3 pb-3">수술 날짜</td>
-									<td colspan='3'><input type="date" id="surg_date"
-										name="surg_date" value="${joinMapVal.patientVal[0].surg_date}"
-										class="form-control mb-3"></td>
-								</tr>
-								<tr>
-									<td class="fs-5 Sans fw-light pb-3">수술명</td>
-									<td colspan="3"><input type="text" id="operation"
-										name="operation" value="${joinMapVal.patientVal[0].operation}"
-										class="form-control mb-3"></td>
-								</tr>
-							</table>
-							<div class="row justify-content-center Sans my-4">
-								<input
-									class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-3 p-1 fw-bolder fs-5"
-									id="ModSubBTN" type="submit" value="수정하기"
-									onclick="Check_CD(event)">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+	<h1 class="container col-xl-7 text-left">
+		<span class="text-gradient d-inline fw-bolder fs-1">진단서 수정
+			${joinMapVal.id}</span>
+	</h1>
+	<div class="container col-xl-7 card border-0 rounded-4">
+		<div class="text-end Sans text-muted mb-4 ">
+			<%
+				String name = (String) session.getAttribute("name");
+			%>
+			관리자 계정: Doctor:
+			<%=name%>
 		</div>
 	</div>
+	<form action="dignosisUpdate" method="post"
+		class="container col-xl-7 card border-0 rounded-4">
+		<%-- <input type="hidden" id="memId" name="id" value="${joinMapVal.id}"> --%>
+		<input type="hidden" id="memId" name="id" value="${member.id}">
+		<table class="text-left DiagnosisTable">
+			<tr class="pt-5">
+				<td colspan='2' class="fs-5 Sans fw-light pb-3">환자이름/환자코드:
+					${joinMapVal.name}/(${prefix})</td>
+				<td class="fs-5 Sans fw-light pb-3">Patient Code</td>
+				<td><select id="patientcode" name="patientcode"
+					class="form-control mb-3">
+						<option value="-">선택하세요</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td class="fs-5 Sans fw-light pb-3">Diagnostic</td>
+				<td colspan="3"><textarea id="Diagnostic" name="Diagnostic"
+						class="mb-3 form-control" rows="3">${joinMapVal.patientVal[0].diagnostic}
+								</textarea></td>
+			</tr>
+			<tr>
+				<td class="fs-5 Sans fw-light pb-3">입원 날짜</td>
+				<td><input type="date" id="admission_date"
+					name="admission_date"
+					value="${joinMapVal.patientVal[0].admission_date}"
+					class="form-control mb-3"></td>
+				<td class="fs-5 Sans fw-light ps-3 pb-3">퇴원 날짜</td>
+				<td><input type="date" id="discharge_date"
+					name="discharge_date"
+					value="${joinMapVal.patientVal[0].discharge_date}"
+					class="form-control mb-3"></td>
+			</tr>
+			<tr>
+				<td class="fs-5 Sans fw-light pb-3">상병명</td>
+				<td><input type="text" id="disease" name="disease"
+					class="form-control mb-3"
+					value="${joinMapVal.patientVal[0].disease}"></td>
+				<td class="fs-5 Sans fw-light ps-3 pb-3">수술 날짜</td>
+				<td colspan='3'><input type="date" id="surg_date"
+					name="surg_date" value="${joinMapVal.patientVal[0].surg_date}"
+					class="form-control mb-3"></td>
+			</tr>
+			<tr>
+				<td class="fs-5 Sans fw-light pb-3">수술명</td>
+				<td colspan="3"><input type="text" id="operation"
+					name="operation" value="${joinMapVal.patientVal[0].operation}"
+					class="form-control mb-3"></td>
+			</tr>
+		</table>
+		<div class="row justify-content-center Sans my-4">
+			<input
+				class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 p-1 fw-bolder fs-5"
+				id="ModSubBTN" type="submit" value="수정하기" onclick="Check_CD(event)">
+		</div>
+	</form>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

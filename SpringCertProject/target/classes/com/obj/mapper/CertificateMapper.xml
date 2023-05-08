@@ -3,30 +3,68 @@
 <mapper namespace="com.obj.mapper.CertificateMapper">
 	<!-- used INNER JOIN to combine data from two tables (patient and certificate) 
 		that share a common field (id). -->
-	<!-- 진료확인서 -->
-	
-	<select id="GeneralDown" resultType="com.obj.model.MemberCertJoinVO">
-		SELECT m.id, name, residentid, disease
+
+	<!-- Issue.jsp -->
+	<select id="Issue" resultMap="MemberCertJoinVal">
+		SELECT m.id, name, patientcode
 		FROM member AS m
-		INNER JOIN certificate AS c
-		ON m.id = c.id <!-- 동일 칼럼: id -->
-		WHERE m.id = #{id} <!-- 로그인한 유저 -->
+		LEFT JOIN certificate AS c <!-- patientcode: null 값도 있으므로 LEFT JOIN을 쓴다.  -->
+		<!-- ON: JOIN 을 하기 전 필터링 -->
+		ON m.id = c.id <!-- 동일 칼럼: id  -->
+		<!-- WHERE: JOIN 을 한 후 필터링 -->
+		WHERE m.id = #{id}<!-- 로그인한 유저: the value of the id parameter that is passed to the SQL query at runtime -->
 	</select>
 	
-<!-- 	<select id="GeneralDown" resultMap="GeneralResultMap">
-		SELECT name, residentid, disease
+	<!-- 진료확인서 -->
+	<select id="GeneralDown" resultMap="MemberCertJoinVal">
+		SELECT m.id, name, residentid, disease, patientcode
+		FROM member AS m
+		INNER JOIN certificate AS c
+		ON m.id = c.id
+		WHERE m.id = #{id} and c.patientcode = '1' 
+	</select>
+	
+	<!-- 입퇴원 확인서 -->
+	<select id="InoutDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease, admission_date, discharge_date, patientcode
+		FROM member AS m
+		INNER JOIN certificate AS c 
+		ON m.id = c.id
+		WHERE m.id = #{id} and c.patientcode = '2'
+	</select> 
+	
+	<!-- 수술확인서 -->
+	<select id="SergDown" resultMap="MemberCertJoinVal">
+		SELECT m.id, name, residentid, disease, operation, surg_date, admission_date, discharge_date, patientcode
+		FROM member AS m
+		INNER JOIN certificate AS c 
+		ON m.id = c.id
+		WHERE m.id = #{id} and c.patientcode = '3' 
+	</select> 
+	
+		<resultMap id="MemberCertJoinVal" type="com.obj.model.MemberCertJoinVO">
+		<result property="name" column="name" />
+		<result property="residentid" column="residentid" />
+		<result property="disease" column="disease" />
+		<result property="operation" column="operation" />
+		<result property="surg_date" column="surg_date" />
+		<result property="admission_date" column="admission_date" />
+		<result property="discharge_date" column="discharge_date" />
+		<result property="patientcode" column="patientcode" />
+	</resultMap> 
+</mapper>
+
+<!-- resultMap 안 쓴 기존 코드  -->
+<!-- 	진료확인서
+	<select id="GeneralDown" resultType="com.obj.model.MemberCertJoinVO">
+		SELECT m.id, name, residentid, disease
 		FROM member AS m
 		INNER JOIN certificate AS c
 		ON m.id = c.id 동일 칼럼: id
 		WHERE m.id = #{id} 로그인한 유저
 	</select>
-		<resultMap id="GeneralResultMap" type="com.obj.model.MemberVO">
-		<result property="name" column="name" />
-		<result property="residentid" column="residentid" />
-		<result property="disease" column="disease" />
-	</resultMap> -->
-	
-	<!-- 입,퇴원확인서 -->
+
+	입,퇴원확인서
 	<select id="InoutDown" resultType="com.obj.model.MemberCertJoinVO">
 		SELECT m.id, name, residentid, disease, admission_date, discharge_date
 		FROM member AS m
@@ -34,45 +72,12 @@
 		ON m.id = c.id
 		WHERE m.id = #{id}
 	</select>
-	<!-- <select id="InoutDown" resultMap="InoutResultMap">
-		SELECT name, residentid, disease, admission_date, discharge_date
-		FROM member AS m
-		INNER JOIN certificate AS c 
-		ON m.id = c.id
-		WHERE m.id = #{id}
-	</select>
-	<resultMap id="InoutResultMap" type="com.obj.model.MemberVO">
-		<result property="name" column="name" />
-		<result property="residentid" column="residentid" />
-		<result property="disease" column="disease" />
-		<result property="admission_date" column="admission_date" />
-		<result property="discharge_date" column="discharge_date" />
-	</resultMap> -->
-	
-	<!-- 수술확인서 -->
+
+	수술확인서
 	<select id="SergDown" resultType="com.obj.model.MemberCertJoinVO">
 		SELECT m.id, name, residentid, disease, operation, surg_date
 		FROM member AS m
 		INNER JOIN certificate AS c 
 		ON m.id = c.id
 		WHERE m.id = #{id}
-	</select>
-	
-<!-- 	<select id="SergDown" resultMap="SergResultMap">
-		SELECT name, residentid, disease, operation, surg_date
-		FROM member AS m
-		INNER JOIN certificate AS c 
-		ON m.id = c.id
-		WHERE m.id = #{id}
-	</select>
-	The resultMap (복잡한 결과 매핑을 간편하게 만들어주기 위해 만들어진 태그) ResultSet에서 데이터를 가져올때 작성되는 JDBC코드를 대부분 줄여주는 역할을 담당
-		specifies which columns in the result set should be mapped to which properties in your Java object.
-	defined the PatientResultMap, which maps from the name to the surg_date columns to properties in the MemberVO class.
-	<resultMap id="SergResultMap" type="com.obj.model.MemberVO">
-		<result property="name" column="name" />
-		<result property="residentid" column="residentid" />
-		<result property="disease" column="disease" />
-		<result property="operation" column="operation" />
-		<result property="surg_date" column="surg_date" />
-	</resultMap> -->
-</mapper>
+	</select> --> 

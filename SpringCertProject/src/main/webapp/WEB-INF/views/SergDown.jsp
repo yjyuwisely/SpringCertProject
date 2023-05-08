@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<td class="inputStyle fw-bold">병명</td>
-				<td colspan="3" class="text-start">${cert.disease}</td>
+				<td colspan="3" class="text-start ps-4">${cert.disease}</td>
 			</tr>
 			<tr>
 				<td class="inputStyle fw-bold">입원 날짜</td>
@@ -65,7 +65,6 @@
 			<li>수술명: ${cert.operation}</li>
 			<li>수술일자: ${cert.surg_date}</li>
 		</ul>
-
 		<p class="dateCheif text-center">
 			<c:set var="myDate" value="<%=new java.util.Date()%>" />
 			<fmt:formatDate value="${myDate}" pattern="yyyy년 MM월 dd일" />
@@ -75,8 +74,8 @@
 	</div>
 	<div class="print-hide text-center">
 		<button onclick="window.print()"
-			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4 "
-			href="#">다운로드</button>
+			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4"
+			href="#"> 다운로드</button>
 	</div>
 </body>
 </html>

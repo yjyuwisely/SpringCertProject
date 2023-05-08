@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<td class="inputStyle fw-bold">병명</td>
-				<td colspan="3" class="text-start">${cert.disease}</td>
+				<td colspan="3" class="text-start ps-4">${cert.disease}</td>
 			</tr>
 		</table>
 		<p class="text-center" style="margin-bottom: 7rem;">상기와 같이 위와 같이
@@ -63,8 +63,8 @@
 	</div>
 	<div class="print-hide text-center">
 		<button onclick="window.print()"
-			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4 "
-			href="#">다운로드</button>
+			class="btn-1 bg-gradient-primary-to-secondary btn btn-primary d-inline-block col-lg-3 fw-bolder fs-4 bi bi-download my-4"
+			href="#"> 다운로드</button>
 	</div>
 </body>
 </html>
