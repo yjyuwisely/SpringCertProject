@@ -41,7 +41,7 @@ request.setCharacterEncoding("utf-8");
 	<div data-aos="fade-right">
 		<div class="container p-5">
 			<div class="row gx-5 align-items-center">
-				<div class="col-xxl-6 mx-3 mt-3">
+				<div class="col-xxl-7 mx-3 mt-3">
 					<h1 class="fw-bolder mb-4">
 						<span class="text-gradient d-inline">증명서 인터넷 발급</span>
 					</h1>
