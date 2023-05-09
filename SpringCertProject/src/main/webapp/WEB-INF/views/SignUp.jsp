@@ -50,7 +50,7 @@
 						<!-- 1. 이메일 -->
 						<div class="Sans form-floating text-muted mb-3 is-invalid">
 							<input class="form-control" name="email" id="email" type="email"
-								onchange="checkEmail(email)" placeholder="이메일" /> <label
+								onchange="checkEmail(this)" placeholder="이메일" /> <label
 								for="email">이메일</label> <span id="emailMsg"></span>
 						</div>
 
