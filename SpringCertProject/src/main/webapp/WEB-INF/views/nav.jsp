@@ -33,12 +33,12 @@
 </head>
 
 <!-- Navigation-->
-<div class=print-hide">
+<div class="print-hide">
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container px-5">
 			<a class="print-hide navbar-brand LogoGradient-text Mont fs-5 px-3"
-				href="/"><span class="fw-bolder">ULSAN GREEN HOSPITAL </span></a>
-			<button class="navbar-toggler" type="button"
+				href="/"><span class="logo-text fw-bolder">ULSAN GREEN HOSPITAL </span></a>
+			<button class="navbar-toggler ms-auto" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">

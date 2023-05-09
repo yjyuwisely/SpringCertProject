@@ -62,9 +62,8 @@
 		<div class="row gx-5 justify-content-center">
 			<div class="card shadow border-0 rounded-4 mb-5">
 				<div class="card-body row align-items-center">
-					<!-- <div class="table-responsive"> -->
-						<table id="memberList" class="DiagnosisTable text-center"
-							style="empty-cells: show;">
+					<div class="table-responsive">
+						<table id="memberList" class="DiagnosisTable table text-center" style="empty-cells: show;">
 							<tr class="fw-bold">
 								<th class="DarkText-gradient mb-5">환자 이름</th>
 								<th class="DarkText-gradient mb-5">주민등록번호</th>
@@ -144,7 +143,7 @@
 				</div>
 			</div>
 		</div>
-	<!-- </div> -->
+	</div>
 	</main>
 	<!-- Bootstrap core JS-->
 	<script
