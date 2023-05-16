@@ -1,2 +1,2 @@
 # SpringCertProject
-Medical-Certificate-Download-Service
+Medical Certificate Download Service
