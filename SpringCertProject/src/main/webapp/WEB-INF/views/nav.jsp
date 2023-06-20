@@ -37,7 +37,8 @@
 	<nav class="navbar navbar-expand-lg bg-white">
 		<div class="container px-5">
 			<a class="print-hide navbar-brand LogoGradient-text Mont fs-5 px-3"
-				href="/"><span class="logo-text fw-bolder">ULSAN GREEN HOSPITAL </span></a>
+				href="/"><span class="logo-text fw-bolder">ULSAN GREEN
+					HOSPITAL </span></a>
 			<button class="navbar-toggler ms-auto" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -51,13 +52,11 @@
 					<!-- <li class="nav-item nav-link">건강정보</li> -->
 					<li class="nav-item nav-link">진료파트</li>
 					<!-- <li class="nav-item nav-link">나눔소통</li> -->
-					<li class="nav-item nav-link"><a href="/LogIn"
-							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">물류관리부서</a></li>
 				</ul>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
 					<c:if test="${empty common.id and empty adminUser.id}">
 						<li class="nav-item"><a href="LogIn"
-							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그인</a></li>
+							class="nav-link badge bg-gradient-primary-to-secondary text-white fs-6 px-2 me-2 mt-2">로그인</a></li>
 					</c:if>
 					<%
 						String admname = (String) session.getAttribute("name");
@@ -75,12 +74,14 @@
 					</c:choose>
 					<c:if test="${not empty common.id or not empty adminUser.id}">
 						<li class="nav-item"><a href="logOut"
-							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">로그아웃</a></li>
+							class="nav-link badge bg-gradient-primary-to-secondary text-white fs-6 mt-2">로그아웃</a></li>
 					</c:if>
 					<c:if test="${empty common.id and empty adminUser.id}">
 						<li class="nav-item"><a href="SignUp"
-							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 fs-6">회원가입</a></li>
+							class="nav-link badge bg-gradient-primary-to-secondary text-white fs-6 mt-2">회원가입</a></li>
 					</c:if>
+					<li class="nav-item nav-link"><a href="/LogIn"
+						class="nav-link badge bg-gradient-primary-to-secondary text-white me-2 fs-6">물류관리부서</a></li>
 				</ul>
 			</div>
 		</div>
