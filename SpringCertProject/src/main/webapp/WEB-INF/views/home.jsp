@@ -73,6 +73,10 @@ request.setCharacterEncoding("utf-8");
 								</a>
 							</c:otherwise>
 						</c:choose>
+						<a href="/geo/departmentMap"
+								class="InternetIssue bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">
+								<span></span> <span></span> <span></span>
+								<span></span>병원 진료과 찾기</a>
 						<c:if test="${not empty adminUser.id}">
 							<a href="Admin"
 								class="InternetIssue bg-gradient-primary-to-secondary btn btn-lg fs-4 fw-bolder">

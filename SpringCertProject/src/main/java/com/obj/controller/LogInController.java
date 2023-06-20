@@ -35,7 +35,7 @@ public class LogInController {
 			logger.info("LogIn failed member is = {}", member);
 			model.addAttribute("errorMsg", "errorMsg");
 			result = "redirect:/LogIn";
-		}else if(email.equals("admin@admin.com") && pass.equals("1234")){	// 관리자일때
+		}else if(email.equals("kuromi@naver.com") && pass.equals("asdqwe123!!")){	// 관리자일때
 			String name = loggedInMember.getName();
 			logger.info("super user LogIn Success member is = {}", member);
 			session.setAttribute("adminUser", loggedInMember);

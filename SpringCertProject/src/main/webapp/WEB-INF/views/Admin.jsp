@@ -152,6 +152,6 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/resources/js/patientWrite.js"></script>
 	<script src="/resources/js/patientModify.js"></script>
-	<script src="/resources/js/searchingFunc.js"></script>
+	<script src="resources/js/searchingFunc.js"></script>
 </body>
 </html>

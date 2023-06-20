@@ -51,7 +51,8 @@
 					<!-- <li class="nav-item nav-link">건강정보</li> -->
 					<li class="nav-item nav-link">진료파트</li>
 					<!-- <li class="nav-item nav-link">나눔소통</li> -->
-					<li class="nav-item nav-link">병원안내</li>
+					<li class="nav-item nav-link"><a href="/LogIn"
+							class="nav-link badge bg-gradient-primary-to-secondary text-white px-2 me-2 fs-6">물류관리부서</a></li>
 				</ul>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bolder">
 					<c:if test="${empty common.id and empty adminUser.id}">
